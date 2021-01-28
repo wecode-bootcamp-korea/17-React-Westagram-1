@@ -1,0 +1,462 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background-color: transparent;
+  border: transparent;
+  outline: none;
+}
+
+nav {
+  position: fixed; 
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #DBDBDB;
+  background-color: #ffffff;
+}
+
+.navbar {
+  display:flex;
+  width: 1000px;
+  height: 65px;
+  line-height: 70px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+
+  .navbarLeft {
+    span {
+      font-size: 26px;
+      font-family: 'Yusei Magic', sans-serif;
+    }
+  }
+
+  .navbarMid {
+    position: relative;
+    input {
+      height: 30px;
+      width: 200px;
+      text-align: center;
+      background-color: #FAFAFA;
+      border: 1px solid #DBDBDB;
+      &:focus {
+        text-align: left;
+        padding-left: 30px;
+        i {
+          display: none;
+        }
+      }
+    }
+  }
+  i {
+    position: absolute;
+    bottom: 27px;
+    left: 70px;
+    font-size: 12px;
+  }
+
+  .navbarRight {
+    display: flex;
+    align-items: center;
+    margin-right: 55px;;
+    position: relative;
+    text-align: center;
+
+    img {
+      width: 30px;
+      margin-right: 15px;
+      cursor: pointer;
+    }
+
+    ul {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: #FFFFFF;
+      border-radius: 10px;
+      display: none;
+      .hide {
+        display: block;
+      }
+
+      li {
+        width: 130px;
+        height: 40px;
+        cursor: pointer;
+        line-height: 40px;
+        padding-left: 20px;
+        display: flex;
+        &:hover {
+          background-color: #FAFAFA;
+        }
+
+        i {
+          line-height: 38px;
+          font-size: 18px;
+          width: 18px;
+          height: 10px;
+          margin-right: 4px;
+        }
+      }
+
+      div {
+        margin-left: 15px;
+        font-size: 14px;
+      }
+      a {
+        margin: 0;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.main {
+  display: flex;
+  width: 1000px;
+  height: 1000px;
+  margin: 0 auto;
+  padding-top: 90px;
+}
+
+.feeds {
+  width: 600px;
+  height: 1000px;
+  background-color: transparent;
+}
+
+.friendList {
+  width: 600px;
+  height: 100px;
+  padding: 16px 0;
+  margin-bottom: 24px; 
+  border: 1px solid #DBDBDB;
+  background-color: white;
+  overflow: hidden;
+
+  ul {
+    display: flex;
+    width: 100vw;
+    li {
+      text-align: center;
+    }
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgb(212, 11, 78);
+    padding: 2px;
+    border-radius: 25px;
+    margin: 0 10px;
+  }
+
+  p {
+    margin: 0 5px;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+.pid {
+  margin: 20px 0;
+  border: 1px solid #DBDBDB;
+}
+
+.pidHead {
+  width: 600px;
+  height: 60px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  img {
+    width: 42px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  span {
+    font-size: 12px;
+  }
+}
+
+.pidHead > div {
+  display: flex;
+  align-items: center;
+}
+
+.pidBody {
+  width: 600px;
+  margin: 0;
+  border: 1px solid #DBDBDB;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.pidImage {
+  height: 750px;
+}
+
+.pidFunc {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  margin-top: 4px;
+
+  ul {
+    display: flex;
+    position: relative;
+  }
+
+  i {
+    font-size: 24px;
+    padding: 8px;
+    cursor: pointer;
+  }
+}
+
+.fullHeart {
+  position: absolute;
+  color: red;
+  left: 0;
+  bottom: 0;
+  display: block;
+  .hide {
+    display: none;
+  }
+}
+
+.emptyHeart.hide {
+  visibility: hidden;
+}
+
+.likeInfo {
+  padding: 0 22px;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.pidInfo {
+  padding: 0 22px;
+  margin-top: 4px;
+  font-size: 14px;
+
+  a{
+    font-weight: bold;
+  }
+}
+
+.commentInfo {
+  margin-top: 4px;
+  color: #8e8e8e;
+}
+
+.comment {
+  margin-bottom: 5px;
+
+  div {
+    display: flex;
+    align-items: center;
+
+    span {
+      line-height: 26px;
+      font-size: 14px;
+    }
+
+    p {
+      min-width: 455px;  
+    }
+
+    i {
+      padding-left: 5px;
+    }
+  }
+
+  .userName {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+    margin-right: 10px;
+  }
+}
+
+.commentWrite {
+  margin-top: 4px;
+  padding: 10px 22px;
+  width: 600px;
+  display: flex;
+  border-top: 1px solid #DBDBDB;
+
+  input {
+    width: 100%;
+    height: 40px;
+    border: transparent;
+    background-color: transparent;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    width: 60px;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #7cc6f8;
+    cursor: pointer;
+    .active {
+      color: #0095F6;
+    }
+  } 
+}
+
+.commnetBtnbox {
+  display: flex;
+  i {
+    cursor: pointer;
+  }
+}
+
+.commentemptyHeart.hide {
+  display: none;
+}
+
+.commnetfullHeart {
+  display: block;
+  color: red;
+  .hide {
+    display: none;
+  }
+}
+
+.right {
+  position: absolute;
+}
+
+.mainRight {
+  width: 300px;
+  height: 1000px;
+  margin-left: 30px;
+}
+
+.myInfo {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px;
+
+  > div {
+    display: flex;
+
+    a {
+      margin-top: 7px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #8e8e8e;
+    }
+  }
+
+  img {
+    width: 55px;
+    height: 55px;
+    padding: 2px;
+    border-radius: 28px;
+    margin-right: 15px;
+  }
+
+  .convert {
+    margin-top: 4px;
+
+    a {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0095F6;
+    }
+  }
+}
+
+.listHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    margin: 0;
+    font-weight: bold;
+  }
+  p {
+    color:  #8e8e8e;
+    font-size: 14px;
+    font-weight: 900;
+  }
+}
+
+.recommend {
+    ul {
+    margin-top: 20px;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+
+      img {
+        width: 40px;
+        height: 40px;
+        padding: 2px;
+        border-radius: 25px;
+        margin-right: 15px;
+     }
+   }
+  }
+  .follow {
+    font-size: 14px;
+    color:  #0095F6;
+    font-weight: 700;
+  }
+}
+
+.recommend ul li > div {
+  display: flex;
+
+  a {
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    color: #8e8e8e;
+  }
+}
+
+.companyInfo {
+  width: 300px;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      font-size: 11px;
+      margin-right: 5px;
+      color: #c7C7c7;
+      cursor: pointer;
+    }
+  }
+
+  p {
+    font-size: 11px;
+    color: #c7c7c7;
+  }
+}
