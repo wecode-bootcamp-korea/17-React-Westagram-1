@@ -34,7 +34,7 @@ class Routes extends React.Component {
                     <Route exact path='/main-minjoo' component={MainMJ} />
 
                     <Route exact path='/login-jiyeon' component={LoginJY} />
-                    <Route exact path='/main-jiyeon' component={MainJY} />``
+                    <Route exact path='/main-jiyeon' component={MainJY} />
 
                     <Route exact path='/login-jongjin' component={LoginJJ} />
                     <Route exact path='/main-jongjin' component={MainJJ} />
