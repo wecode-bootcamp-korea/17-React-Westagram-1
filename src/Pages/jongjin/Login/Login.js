@@ -38,6 +38,11 @@ class login extends React.Component {
                   <input type="password" onChange={this.handlepwdInput} className="userPW" placeholder="비밀번호"/>
                   <div className="loginBtn">
                       <button
+                        style= {{backgroundColor: this.state.id.length > 5 
+                          && this.state.id.includes("@")
+                          && this.state.password.length > 5
+                      ? "#0095F6" : ""
+                      }}
                         className="loginBtn"
                         onClick={this.goToMain}>
                         로그인
@@ -49,7 +54,6 @@ class login extends React.Component {
               </div>
             </form>
           </section>
-          <div>{this.state.id}</div>
       </div>
     );
   }
