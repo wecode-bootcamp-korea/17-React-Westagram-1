@@ -1,0 +1,12 @@
+%flexCenter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+// sass 파일에서
+
+
+.logo {
+	@extend %flexCenter
+}
