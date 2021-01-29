@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Comment from './Comment/Comment'
 import './Main.scss'
 
 class MainJJ extends Component {
@@ -30,6 +31,7 @@ class MainJJ extends Component {
     
 
     render() {
+        const {text, user, comment, commentList} = this.state
         return (
         <>
             <nav>
@@ -111,24 +113,14 @@ class MainJJ extends Component {
                             <div className="commentInfo">
                                 <p>댓글 1,000개 모두 보기</p>
                             </div>
-                            <div className="comment">
-                                <div>
-                                    <span className="userName">Ironman</span>
-                                    <span> 스파스파이더맨 </span>
-                                <div>
-                                    {this.state.commentList.map((comment => 
-                                        <li><span className="userName">{this.state.user}</span>{comment}</li>
-                                    ))}
-                                </div>
-                                </div>
-                            </div>
-                        </section>
-                        <section className="commentWrite">
-                            <input onChange= {this.handleInputChange} onKeyDown = {this.handleKeyPress}
-                                    className= "commentInput" type="text" placeholder="댓글 달기..."
-                                    value={this.state.text} name="text"
+                            < Comment comment= {comment}
+                                      user= {user} 
+                                      text= {text}
+                                      commentList= {commentList}
+                                      commentAdd= {this.handleClick}
+                                      handleKeyPress= {this.handleKeyPress}
+                                      handleInputChange= {this.handleInputChange}
                             />
-                            <button onClick={this.handleClick}>게시</button>
                         </section>
                     </div>
                 </div>
