@@ -2,6 +2,33 @@ import React, { Component } from 'react';
 import './Main.scss'
 
 class MainJJ extends Component {
+
+    state = {
+        text: "",
+        user: "Ironman ",
+        commentList: []
+    }
+
+    handleInputChange = (e) => {
+        this.setState({
+            text: e.target.value
+        });
+    }
+
+    handleKeyPress = (e) => {
+        if(e.key === 'Enter') {
+            this.handleClick();
+        }
+    }
+
+    handleClick = () => {
+        this.setState({
+            commentList: this.state.commentList.concat(this.state.text),
+            text: ''
+        })
+    }
+    
+
     render() {
         return (
         <>
@@ -88,12 +115,20 @@ class MainJJ extends Component {
                                 <div>
                                     <span className="userName">Ironman</span>
                                     <span> 스파스파이더맨 </span>
+                                <div>
+                                    {this.state.commentList.map((comment => 
+                                        <li><span className="userName">{this.state.user}</span>{comment}</li>
+                                    ))}
+                                </div>
                                 </div>
                             </div>
                         </section>
                         <section className="commentWrite">
-                            <input className= "commentInput" type="text" placeholder="댓글 달기..."/>
-                            <button>게시</button>
+                            <input onChange= {this.handleInputChange} onKeyDown = {this.handleKeyPress}
+                                    className= "commentInput" type="text" placeholder="댓글 달기..."
+                                    value={this.state.text} name="text"
+                            />
+                            <button onClick={this.handleClick}>게시</button>
                         </section>
                     </div>
                 </div>

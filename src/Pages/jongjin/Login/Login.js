@@ -9,15 +9,9 @@ class login extends React.Component {
     password: "",
   }
 
-  handleidInput = (e) => {
+  handleInputChange = (e) => {
     this.setState({
-      id: e.target.value
-    })
-  }
-
-  handlepwdInput = (e) => {
-    this.setState({
-      password: e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
@@ -34,8 +28,8 @@ class login extends React.Component {
                   <h1>westargram</h1>
               </div>
               <div className="loginForm">
-                  <input type="text" onChange={this.handleidInput} className="userID" placeholder="전화번호, 사용자 이름 또는 이메일"/>
-                  <input type="password" onChange={this.handlepwdInput} className="userPW" placeholder="비밀번호"/>
+                  <input type="text" name="id" onChange={this.handleInputChange} className="userID" placeholder="전화번호, 사용자 이름 또는 이메일"/>
+                  <input type="password" name="password" onChange={this.handleInputChange} className="userPW" placeholder="비밀번호"/>
                   <div className="loginBtn">
                       <button
                         style= {{backgroundColor: this.state.id.length > 5 
