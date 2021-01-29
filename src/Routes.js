@@ -27,7 +27,7 @@ class Routes extends React.Component {
         return (
             <Router>
                 <Switch>
-                // import 한 컴포넌트에 대한 경로를 각각 설정해줍니다.
+              
                     <Route exact path='/' component={House}/>
 
                     <Route exact path='/login-minjoo' component={LoginMJ} />
