@@ -153,10 +153,22 @@
         }
 
         .chat {
-          margin-top: 10px;
-          margin-bottom: 30px;
-          margin-left: 15px;
           font-size: 15px;
+          margin: 10px 15px 30px 15px;
+
+          .commentelement {
+            display: flex;
+            justify-content: space-between;
+          }
+          .deletebtn {
+            background-color: orange;
+            width: 50ox;
+            height: 30px;
+          }
+          .comment {
+            padding: 5px;
+            border: 1px dotted gray;
+          }
 
           h3 {
             display: inline;
@@ -192,8 +204,8 @@
             border-radius: 3px;
             // background-color: white;
             font-family: "Gothic A1", sans-serif;
-            font-weight: 4px;
-            color: rgb(61, 139, 238);
+            font-weight: 20px;
+            color: blue;
             border: 1px gray dotted;
             box-shadow: none;
           }

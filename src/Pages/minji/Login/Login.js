@@ -11,7 +11,7 @@ class LoginMinji extends React.Component {
 
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(e.target.name);
+    console.log(e.target.value);
   };
   checkInput = () => {
     if (this.state.id.includes("@") && this.state.password.length > 4) {

@@ -9,9 +9,7 @@ import compass from "../../../image/kangminji/compass.png";
 import heart from "../../../image/kangminji/heart.png";
 import user from "../../../image/kangminji/user.png";
 import me from "../../../image/kangminji/me.jpg";
-// import logout from "../../../image/kangminji/logout.png";
 import share from "../../../image/kangminji/share.png";
-// import management from "../../../image/kangminji/management.png";
 import sea from "../../../image/kangminji/sea.jpg";
 import bubble from "../../../image/kangminji/bubble.png";
 import redheart from "../../../image/kangminji/redheart.png";
@@ -20,14 +18,23 @@ import bookmark from "../../../image/kangminji/bookmark.png";
 class MainMinji extends React.Component {
   constructor() {
     super();
-    this.state = { btncolor: "white", comment: "" };
+    this.state = { btncolor: "white", comment: "", value: "" };
+    this.commentarray = [];
   }
 
   commentbtnchange = (e) => {
+    this.setState({ [e.target.name]: e.target.value, value: e.target.value });
     if (e.target.value) {
-      this.setState = { btncolor: "blue" };
-      console.log(e.target.value);
+      this.setState({ btncolor: "skyblue" });
+    } else {
+      this.setState({ btncolor: "white" });
     }
+  };
+
+  addcomment = () => {
+    this.setState({ comment: this.state.comment });
+    this.commentarray.push(this.state.comment);
+    this.setState({ value: "" });
   };
 
   render() {
@@ -45,16 +52,8 @@ class MainMinji extends React.Component {
             </div>
 
             <div className="naviconBox">
-              <img
-                alt="compass"
-                src={compass}
-                className="right headmark"
-              />
-              <img
-                alt="heart"
-                src={heart}
-                className="right headmark"
-              />
+              <img alt="compass" src={compass} className="right headmark" />
+              <img alt="heart" src={heart} className="right headmark" />
               <img alt="user" src={user} className="right headmark" />
             </div>
           </div>
@@ -74,31 +73,15 @@ class MainMinji extends React.Component {
                   WeCode
                 </div>
 
-                <img
-                  alt="feedmain"
-                  src={sea}
-                  className="contentpicture"
-                />
+                <img alt="feedmain" src={sea} className="contentpicture" />
 
                 <div className="icons">
                   <div className="three">
-                    <img
-                      alt="heart"
-                      src={redheart}
-                      className="icon a"
-                    />
-                    <img
-                      alt="speech-bubble"
-                      src={bubble}
-                      className="icon a"
-                    />
+                    <img alt="heart" src={redheart} className="icon a" />
+                    <img alt="speech-bubble" src={bubble} className="icon a" />
                     <img alt="export" src={share} className="icon" />
                   </div>
-                  <img
-                    alt="bookmark"
-                    src={bookmark}
-                    className="icon b"
-                  />
+                  <img alt="bookmark" src={bookmark} className="icon b" />
                 </div>
                 <div className="like">
                   <img src={me} alt="likeuser" className="likeme" />
@@ -111,7 +94,16 @@ class MainMinji extends React.Component {
                   <h3>dawn</h3> 우와 바다다다다다
                   <br />
                   <p>1분 전</p>
-                  <div className="commentbox" id="commentbox"></div>
+                  <div>
+                    {this.commentarray.map((e) => {
+                      return (
+                        // <div className="commentelement">
+                        <div className="comment">{e}</div>
+                        // {/* <button className="deletebtn"></button> */}
+                        // </div>
+                      );
+                    })}
+                  </div>
                 </div>
 
                 <div className="commentbody">
@@ -120,14 +112,15 @@ class MainMinji extends React.Component {
                     placeholder="댓글 달기..."
                     id="comment"
                     name="comment"
+                    value={this.state.value}
                     onChange={this.commentbtnchange}
                   />
                   <button
-                    placeholder="게시"
                     className="commentbtn"
+                    onClick={this.addcomment}
                     style={{ background: this.state.btncolor }}
                   >
-                    입력
+                    게시
                   </button>
                 </div>
               </div>
