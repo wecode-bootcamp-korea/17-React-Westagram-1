@@ -1,9 +1,7 @@
 // import React, { Component } from "react";
 import "./Main.scss";
-// import './assets/css/fonts.css';
-//  import { Link } from 'react-router-dom';
 import React from "react";
-
+import Comments from "./Comments";
 import instalogo from "../../../image/kangminji/instagram.png";
 import compass from "../../../image/kangminji/compass.png";
 import heart from "../../../image/kangminji/heart.png";
@@ -18,10 +16,14 @@ import bookmark from "../../../image/kangminji/bookmark.png";
 class MainMinji extends React.Component {
   constructor() {
     super();
-    this.state = { btncolor: "white", comment: "", value: "" };
-    this.commentarray = [];
+    this.state = {
+      btncolor: "white",
+      comment: "",
+      commentarray: [],
+      id: 1,
+      value: "",
+    };
   }
-
   commentbtnchange = (e) => {
     this.setState({ [e.target.name]: e.target.value, value: e.target.value });
     if (e.target.value) {
@@ -32,12 +34,24 @@ class MainMinji extends React.Component {
   };
 
   addcomment = () => {
-    this.setState({ comment: this.state.comment });
-    this.commentarray.push(this.state.comment);
-    this.setState({ value: "" });
+    if (this.state.value) {
+      this.setState({
+        commentarray: this.state.commentarray.concat(this.state.value),
+        value: "",
+        btncolor: "white",
+        id: this.state.id + 1,
+      });
+    }
+  };
+
+  addcommententer = (e) => {
+    if (e.key === "Enter" && this.state.value) {
+      this.addcomment();
+    }
   };
 
   render() {
+    const { value, commentarray, btncolor } = this.state;
     return (
       <div className="Main">
         <div className="navigation">
@@ -95,30 +109,25 @@ class MainMinji extends React.Component {
                   <br />
                   <p>1분 전</p>
                   <div>
-                    {this.commentarray.map((e) => {
-                      return (
-                        // <div className="commentelement">
-                        <div className="comment">{e}</div>
-                        // {/* <button className="deletebtn"></button> */}
-                        // </div>
-                      );
+                    {commentarray.map((e, index) => {
+                      return <Comments text={e} key={index} />;
                     })}
                   </div>
                 </div>
-
                 <div className="commentbody">
                   <input
                     type="form"
                     placeholder="댓글 달기..."
                     id="comment"
                     name="comment"
-                    value={this.state.value}
+                    value={value}
+                    onKeyUp={this.addcommententer}
                     onChange={this.commentbtnchange}
                   />
                   <button
                     className="commentbtn"
                     onClick={this.addcomment}
-                    style={{ background: this.state.btncolor }}
+                    style={{ background: btncolor }}
                   >
                     게시
                   </button>

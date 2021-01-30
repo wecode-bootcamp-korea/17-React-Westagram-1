@@ -1,7 +1,5 @@
 import React from "react";
-
 import "./Login.scss";
-// import { Link } from "react-router-dom";
 
 class LoginMinji extends React.Component {
   constructor() {
@@ -13,14 +11,6 @@ class LoginMinji extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
     console.log(e.target.value);
   };
-  checkInput = () => {
-    if (this.state.id.includes("@") && this.state.password.length > 4) {
-      this.setState({ color: "blue" });
-    }
-    if (!this.state.id || !this.state.password) {
-      this.setState({ color: "rgb(185, 216, 256)" });
-    }
-  };
   checkValidation = () => {
     if (this.state.id.includes("@") && this.state.password.length > 4) {
       this.props.history.push("/main-minji");
@@ -30,7 +20,17 @@ class LoginMinji extends React.Component {
     console.log(this.state.id);
     console.log(this.state.password);
   };
-  //굿굿
+  checkInput = (e) => {
+    if (this.state.id.includes("@") && this.state.password.length > 4) {
+      this.setState({ color: "blue" });
+    }
+    if (!this.state.id || !this.state.password) {
+      this.setState({ color: "rgb(185, 216, 256)" });
+    }
+    if (e.key === "Enter") {
+      this.checkValidation();
+    }
+  };
   render() {
     return (
       <div className="Login">

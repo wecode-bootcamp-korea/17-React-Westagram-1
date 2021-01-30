@@ -1,9 +1,6 @@
 .Main {
-  // * {
-  //   // box-sizing: border-box;
-  //   margin: 0;
-  //   padding: 0;
-  //   background-color: rgb(249, 249, 249);
+  box-sizing: border-box;
+  background-color: rgb(249, 249, 249);
   .navigation {
     position: sticky;
     top: 0;
@@ -15,12 +12,10 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    border-top: solid 1px black;
     border-bottom: 1px solid rgb(160, 163, 165);
     background-color: white;
     z-index: 100;
   }
-
   /* body */
 
   .navCenter {
@@ -54,6 +49,7 @@
     .center {
       width: 180px;
       background-color: white;
+      margin: 0 10px 0 10px;
       .search {
         width: 150px;
         text-align: center;
@@ -78,6 +74,7 @@
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    background-color: rgb(249, 249, 249);
 
     .feeds {
       position: relative;
@@ -85,6 +82,7 @@
       height: auto;
       border: 1px solid rgb(160, 163, 165);
       border-radius: 3px;
+      background-color: white;
       .feed {
         position: relative;
         width: 90%;
@@ -167,7 +165,9 @@
           }
           .comment {
             padding: 5px;
-            border: 1px dotted gray;
+            border: 1px dashed gray;
+            background-color: beige;
+            font-size: 17px;
           }
 
           h3 {
@@ -184,18 +184,18 @@
         }
 
         .commentbody {
-          // position: relative;
           display: flex;
           flex-direction: row;
-
           justify-content: center;
 
           #comment {
-            // position: absolute;
             width: 80%;
             height: 45px;
             left: 30px;
             bottom: 10px;
+            border: gray dotted 1px;
+            border-radius: 3px;
+            margin-left: 8px;
           }
           .commentbtn {
             height: 30px;
@@ -227,7 +227,6 @@
           height: 50px;
           border-radius: 50px;
           margin: 10px 0 0 15px;
-          border: 3px dotted hotpink;
         }
 
         .profileme {
@@ -274,6 +273,7 @@
         overflow: scroll;
         width: 300px;
         height: 300px;
+        background-color: white;
         .storyhead {
           display: flex;
           justify-content: space-between;
@@ -325,6 +325,7 @@
         overflow: scroll;
         width: 300px;
         height: 300px;
+        background-color: white;
         .storyhead {
           display: flex;
           justify-content: space-between;
