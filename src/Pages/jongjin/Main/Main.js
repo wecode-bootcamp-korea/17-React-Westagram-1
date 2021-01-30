@@ -1,5 +1,19 @@
 import React, { Component } from 'react';
 import Comment from './Comment/Comment'
+import jongjin from '../../../images/jongjin/종진.jpg'
+import Ironman from '../../../images/jongjin/아이언맨.jpg'
+import Thor from '../../../images/jongjin/토르.jpg'
+import Wanda from '../../../images/jongjin/스칼렛위치.jpg'
+import Hulk from '../../../images/jongjin/헐크.png'
+import Widow from '../../../images/jongjin/블랙위도우.jpg'
+import Thanos from '../../../images/jongjin/타노스.png'
+import Spider from '../../../images/jongjin/스파이더.jpg'
+import Antman from '../../../images/jongjin/앤트맨.jpg'
+import Captain from '../../../images/jongjin/캡틴아메리카.jpg'
+import Doctor from '../../../images/jongjin/닥터스트레인지.png'
+import BlackPanther from '../../../images/jongjin/블랙팬서.jpg'
+import Marble from '../../../images/jongjin/마블.png'
+import SpiderManpid from '../../../images/jongjin/스파이더맨.jpg'
 import './Main.scss'
 
 class MainJJ extends Component {
@@ -34,7 +48,7 @@ class MainJJ extends Component {
         const {text, user, comment, commentList} = this.state
         return (
         <>
-            <nav>
+        <nav>
             <div className="navbar">
                 <div className="navbarLeft">
                     <span>westargram</span>
@@ -56,29 +70,29 @@ class MainJJ extends Component {
                         <li><a href="login.html">로그아웃</a></li>
                     </ul>
                 </div>
-                </div>
+            </div>
         </nav>
         <section className="main">
             <div className="feeds">
                 <div className="friendList">
                     <ul>
-                        <li><img alt="친구" src={require('../../../images/jongjin/종진.jpg')}/><p>My stroy</p></li>
-                        <li><img alt="친구" src="../../../images/jongjin/아이언맨.jpg"/><p>Iron Man</p></li>
-                        <li><img alt="친구" src="/img/블랙위도우.jpg"/><p>widow</p></li>
-                        <li><img alt="친구" src="/img/스칼렛위치.jpg"/><p>Wanda</p></li>
-                        <li><img alt="친구" src="/img/토르.jpg"/><p>Thor</p></li>
-                        <li><img alt="친구" src="/img/헐크.jpg"/><p> Hulk</p></li>
-                        <li><img alt="친구" src="/img/마동석.jpg"/><p>마동석</p></li>
-                        <li><img alt="친구" src="/img/루피.jpg"/><p>Ruppy</p></li>
-                        <li><img alt="친구" src="/img/타노스.jpg"/><p>Thanos</p></li>
-                        <li><img alt="친구" src="/img/루피.jpg"/><p>Ruppy</p></li>
-                        <li><img alt="친구" src="/img/루피.jpg"/><p>Ruppy</p></li>
+                        <li><img alt="친구" src={jongjin}/><p>My stroy</p></li>
+                        <li><img alt="친구" src={Ironman}/><p>Iron Man</p></li>
+                        <li><img alt="친구" src={Widow}/><p>widow</p></li>
+                        <li><img alt="친구" src={Captain}/><p>Captain</p></li>
+                        <li><img alt="친구" src={BlackPanther}/><p>BlackPanther</p></li>
+                        <li><img alt="친구" src={Hulk}/><p>Hulk</p></li>
+                        <li><img alt="친구" src={Spider}/><p>Spider</p></li>
+                        <li><img alt="친구" src={Antman}/><p>Antman</p></li>
+                        <li><img alt="친구" src={Wanda}/><p>Wanda</p></li>
+                        <li><img alt="친구" src={Thor}/><p>Thor</p></li>
+                        <li><img alt="친구" src={Thanos}/><p>Thanos</p></li>
                     </ul>
                 </div>
                 <div className="pid">
                     <div className="pidHead">
                         <div>
-                            <img alt="user" src="./img/마블.png"/>
+                            <img alt="user" src={Marble}/>
                             <span>Marble studio</span>
                         </div>
                         <div>
@@ -87,18 +101,18 @@ class MainJJ extends Component {
                     </div>
                     <div className="pidBody">
                         <div className="pidImage">
-                            <img alt="사진" src="img/스파이더맨.jpg"/>
+                            <img alt="사진" src={SpiderManpid}/>
                         </div>
                         <section className="pidFunc">
-                                <ul>
-                                    <li><button className="emptyHeart"><i className="far fa-heart"></i></button></li>
-                                    <li><button className="fullHeart"><i className="fas fa-heart"></i></button></li>
-                                    <li><i className="far fa-comment"></i></li>
-                                    <li><i className="far fa-paper-plane"></i></li>
-                                </ul>
-                                <div>
-                                    <i className="far fa-bookmark"></i>
-                                </div>
+                            <ul>
+                                <li><button className="emptyHeart"><i className="far fa-heart"></i></button></li>
+                                <li><button className="fullHeart"><i className="fas fa-heart"></i></button></li>
+                                <li><i className="far fa-comment"></i></li>
+                                <li><i className="far fa-paper-plane"></i></li>
+                            </ul>
+                            <div>
+                                <i className="far fa-bookmark"></i>
+                            </div>
                         </section>
                         <section className="likeInfo">
                             <p>좋아요 100,000개</p>
@@ -128,7 +142,7 @@ class MainJJ extends Component {
             <div className="mainRight">
                 <section className="myInfo">
                     <div>
-                        <img alt="친구" src="./img/종진.jpg"/>
+                        <img alt="친구" src={jongjin}/>
                         <div>
                             <a>kimgjongjin0920</a>
                             <p>김종진</p>
@@ -146,9 +160,9 @@ class MainJJ extends Component {
                     <ul>
                         <li>
                             <div>
-                                <img alt="친구" src="./img/종진.jpg"/>
+                                <img alt="친구" src={Captain}/>
                                 <div>
-                                    <a>playck</a>
+                                    <a>Captain</a>
                                     <p>회원님을 위한 추천</p>
                                 </div>
                             </div>
@@ -156,7 +170,7 @@ class MainJJ extends Component {
                         </li>
                         <li>
                             <div>
-                                <img alt="친구" src="./img/타노스.jpg"/>
+                                <img alt="친구" src={Thanos}/>
                                 <div>
                                     <a>Thanos</a>
                                     <p>Thanos님이 대결을 요청합니다</p>
@@ -166,19 +180,19 @@ class MainJJ extends Component {
                         </li>
                         <li>
                             <div>
-                                <img alt="친구" src="./img/헐크.jpg"/>
+                                <img alt="친구" src={Hulk}/>
                                 <div>
                                     <a>Hulk</a>
-                                    <p>인스타 할줄 모름</p>
+                                    <p>인스타 할줄 모릅니다.</p>
                                 </div>
                             </div>
                             <a href="#" className="follow">팔로우</a>
                         </li>
                         <li>
                             <div>
-                                <img alt="친구" src="./img/토르.jpg"/>
+                                <img alt="친구" src={Doctor}/>
                                 <div>
-                                    <a>Thor</a>
+                                    <a>Doctor Strange</a>
                                     <p>회원님을 위한 추천</p>
                                 </div>
                             </div>
@@ -186,9 +200,9 @@ class MainJJ extends Component {
                         </li>
                         <li>
                             <div>
-                                <img alt="친구" src="./img/마동석.jpg"/>
+                                <img alt="친구" src={Widow}/>
                                 <div>
-                                    <a>마동석</a>
+                                    <a>Black Widow</a>
                                     <p>회원님을 위한 추천</p>
                                 </div>
                             </div>
@@ -197,7 +211,7 @@ class MainJJ extends Component {
                     </ul>
                     <div className="companyInfo">
                         <ul>
-                            <li>소개 ∙ </li>
+                            <li>소개 ∙</li>
                             <li>도움말 ∙</li>
                             <li>홍보 센터 ∙</li>
                             <li>API ∙</li>
@@ -212,8 +226,7 @@ class MainJJ extends Component {
                     </div>
                 </section>
                 </div>
-        </section>  
-    
+        </section>      
         </>
         );
       }
