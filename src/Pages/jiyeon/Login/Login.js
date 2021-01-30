@@ -18,15 +18,27 @@ class LoginJY extends React.Component {
     });
   }
 
+  handleBtnActive = () =>{
+    if(this.state.idInput.indexOf('@') != -1 && this.state.pwInput.length >= 5){
+      this.loginBtn.className = "active_btn login_btn";
+      console.log('온')
+    } else{
+      console.log('off')
+    }
+  }
+
   render() {
+    // 객체 배열 구조 할당
+    const {idInput, pwInput} = this.state;
+    console.log(idInput, pwInput)
     return (
       <div className="Login">
         <div className="login_container">
           <div className="instagram_logo">westagram</div>
-          <form className="login_form">
+          <form onChange={this.handleBtnActive} className="login_form">
             <input 
               onChange = {this.handleIdPwInput} 
-              value={this.state.idInput} 
+              value={idInput} 
               type="text" 
               className="id_input" 
               placeholder="전화번호, 사용자 이름 또는 이메일"
@@ -34,14 +46,18 @@ class LoginJY extends React.Component {
             />
             <input 
               onChange = {this.handleIdPwInput} 
-              value={this.state.pwInput} 
+              value={pwInput} 
               type="password"  
               className="password_input" 
               placeholder="비밀번호"
               name="pwInput"
             />
             <Link to="/main-jiyeon">
-              <button className="inactive_btn login_btn">로그인</button>
+              <button 
+                className="inactive_btn login_btn"
+                >
+                로그인
+              </button>
             </Link>
           </form>
           <div className="underline_content">
