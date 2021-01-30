@@ -1,14 +1,15 @@
 import React from "react";
-import './Login.scss';
 import { Link } from 'react-router-dom';
 import facebook_logo from '../../../images/jiyeon/facebook_icon.png'
+import './Login.scss';
 
 class LoginJY extends React.Component {
   constructor(){
     super();
     this.state = {
       idInput: '',
-      pwInput: ''
+      pwInput: '',
+      isBtnActive: false
     };
   }
 
@@ -18,19 +19,15 @@ class LoginJY extends React.Component {
     });
   }
 
-  handleBtnActive = () =>{
-    if(this.state.idInput.indexOf('@') != -1 && this.state.pwInput.length >= 5){
-      this.loginBtn.className = "active_btn login_btn";
-      console.log('온')
-    } else{
-      console.log('off')
-    }
+  handleBtnActive = () => {
+    this.setState({
+      isBtnActive: !this.state.idInput.indexOf('@') !== -1 && this.state.pwInput.length >= 5
+    });
   }
 
   render() {
-    // 객체 배열 구조 할당
-    const {idInput, pwInput} = this.state;
-    console.log(idInput, pwInput)
+    const {idInput, pwInput, isBtnActive} = this.state;
+
     return (
       <div className="Login">
         <div className="login_container">
@@ -53,11 +50,7 @@ class LoginJY extends React.Component {
               name="pwInput"
             />
             <Link to="/main-jiyeon">
-              <button 
-                className="inactive_btn login_btn"
-                >
-                로그인
-              </button>
+              <button className= {isBtnActive ? "active_btn" : "inactive_btn"}> 로그인 </button>
             </Link>
           </form>
           <div className="underline_content">
@@ -69,7 +62,7 @@ class LoginJY extends React.Component {
             <img src={facebook_logo} alt="Facebook icon"/>
             <span>Facebook으로 로그인</span>
           </button>
-          <a className="forget-password" href="">
+          <a className="forget-password" href="/">
             비밀번호를 잊으셨나요?
           </a>
         </div>
