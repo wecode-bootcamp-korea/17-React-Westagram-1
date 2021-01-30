@@ -21,7 +21,7 @@ class LoginJY extends React.Component {
 
   handleBtnActive = () => {
     this.setState({
-      isBtnActive: !this.state.idInput.indexOf('@') !== -1 && this.state.pwInput.length >= 5
+      isBtnActive: this.state.idInput.indexOf('@') !== -1 && this.state.pwInput.length >= 5 ? true : false
     });
   }
 
