@@ -22,6 +22,7 @@ export const commentData = [
       username: "sanggi",
       content: "바다아니냐",
       isLiked: true,
+      
     }
   ];
   

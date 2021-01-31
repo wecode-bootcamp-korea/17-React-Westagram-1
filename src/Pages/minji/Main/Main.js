@@ -1,18 +1,20 @@
 // import React, { Component } from "react";
 import "./Main.scss";
 import React from "react";
-import Comments from "./Comments";
+// import Comments from "./Comments";
 import instalogo from "../../../image/kangminji/instagram.png";
 import compass from "../../../image/kangminji/compass.png";
 import heart from "../../../image/kangminji/heart.png";
 import user from "../../../image/kangminji/user.png";
 import me from "../../../image/kangminji/me.jpg";
-import share from "../../../image/kangminji/share.png";
-import sea from "../../../image/kangminji/sea.jpg";
-import bubble from "../../../image/kangminji/bubble.png";
-import redheart from "../../../image/kangminji/redheart.png";
-import bookmark from "../../../image/kangminji/bookmark.png";
+// import share from "../../../image/kangminji/share.png";
+// import sea from "../../../image/kangminji/sea.jpg";
+// import bubble from "../../../image/kangminji/bubble.png";
+// import redheart from "../../../image/kangminji/redheart.png";
+// import bookmark from "../../../image/kangminji/bookmark.png";
 import { commentData } from "./commentData";
+import { FeedData } from "./FeedData";
+import Feeds from "./Feeds";
 
 class MainMinji extends React.Component {
   constructor() {
@@ -21,13 +23,14 @@ class MainMinji extends React.Component {
       btncolor: "white",
       comment: "",
       commentData: [],
-      // id: 1,
       value: "",
+      FeedData: [],
     };
   }
   componentDidMount() {
     this.setState({
       commentData: commentData,
+      FeedData: FeedData,
     });
   }
   commentbtnchange = (e) => {
@@ -45,10 +48,9 @@ class MainMinji extends React.Component {
         commentData: this.state.commentData.concat(this.state.value),
         value: "",
         btncolor: "white",
-        // id: this.state.commentarray.length + 1,
       });
     }
-    // console.log("commentarray >>>" + this.state.commentarray);
+
   };
   addcommententer = (e) => {
     if (e.key === "Enter" && this.state.value) {
@@ -57,7 +59,7 @@ class MainMinji extends React.Component {
   };
 
   render() {
-    const { value, commentData, btncolor } = this.state;
+    const { FeedData } = this.state;
     return (
       <div className="Main">
         <div className="navigation">
@@ -81,71 +83,22 @@ class MainMinji extends React.Component {
         <div className="container">
           <div className="feedsandside">
             <div className="feeds">
-              <div className="feed">
-                <img
-                  alt="profile"
-                  src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s320x320/64219646_866712363683753_7365878438877462528_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=ehYY5kNkoOEAX-bVJJK&tp=1&oh=a6656c95f28bc6413260ba52d32a22f3&oe=602CFE20"
-                  className="profile"
-                />
-                <div className="head">
-                  wecode_bootcamp
-                  <br />
-                  WeCode
-                </div>
-
-                <img alt="feedmain" src={sea} className="contentpicture" />
-
-                <div className="icons">
-                  <div className="three">
-                    <img alt="heart" src={redheart} className="icon a" />
-                    <img alt="speech-bubble" src={bubble} className="icon a" />
-                    <img alt="export" src={share} className="icon" />
-                  </div>
-                  <img alt="bookmark" src={bookmark} className="icon b" />
-                </div>
-                <div className="like">
-                  <img src={me} alt="likeuser" className="likeme" />
-                  <h3>minji</h3>님 <h3>외 381명</h3>이 좋아합니다
-                </div>
-
-                <div className="chat">
-                  <h3>arum</h3> 어디갔다 왔냐
-                  <br />
-                  <h3>dawn</h3> 우와 바다다다다다
-                  <br />
-                  <p>1분 전</p>
-                  <div>
-                    {commentData.map((comment) => {
-                      return (
-                        <Comments
-                          key={comment.id}
-                          username={comment.username}
-                          content={comment.content}
-                          isLiked={comment.isLiked}
-                        />
-                      );
-                    })}
-                  </div>
-                </div>
-                <div className="commentbody">
-                  <input
-                    type="form"
-                    placeholder="댓글 달기..."
-                    id="comment"
-                    name="comment"
-                    value={value}
-                    onKeyUp={this.addcommententer}
-                    onChange={this.commentbtnchange}
+              {FeedData.map((feed) => {
+                return (
+                  <Feeds
+                    key={feed.id}
+                    username={feed.username}
+                    photo={feed.photo}
+                    likedpeople={feed.likedpeople}
+                    comment={feed.comment}
+                    time={feed.time}
+                    value={this.state.value}
+                    btncolor={this.state.btncolor}
+                    profile={feed.profile}
+                    commentone={feed.commentone}
                   />
-                  <button
-                    className="commentbtn"
-                    onClick={this.addcomment}
-                    style={{ background: btncolor }}
-                  >
-                    게시
-                  </button>
-                </div>
-              </div>
+                );
+              })}
             </div>
 
             <div className="content-right">
