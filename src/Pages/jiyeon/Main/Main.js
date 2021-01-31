@@ -1,4 +1,5 @@
 import React from "react";
+import Comment from "./Comment/Comment"
 import './Main.scss';
 
 class MainJY extends React.Component {
@@ -98,11 +99,7 @@ class MainJY extends React.Component {
                     </section>
                     <ul className="comment_list">
                     {commentData.map(comment => {
-                      return(
-                        <li>
-                        <a href="/">jiyeon0807</a> <span>{comment}</span>
-                        </li>
-                      )
+                      return <Comment commentData={comment} />
                     })}
                     </ul>
                     <div className="comment_input">
