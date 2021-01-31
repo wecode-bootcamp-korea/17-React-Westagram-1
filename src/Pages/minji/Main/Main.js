@@ -12,6 +12,7 @@ import sea from "../../../image/kangminji/sea.jpg";
 import bubble from "../../../image/kangminji/bubble.png";
 import redheart from "../../../image/kangminji/redheart.png";
 import bookmark from "../../../image/kangminji/bookmark.png";
+import { commentData } from "./commentData";
 
 class MainMinji extends React.Component {
   constructor() {
@@ -19,10 +20,15 @@ class MainMinji extends React.Component {
     this.state = {
       btncolor: "white",
       comment: "",
-      commentarray: [],
-      id: 1,
+      commentData: [],
+      // id: 1,
       value: "",
     };
+  }
+  componentDidMount() {
+    this.setState({
+      commentData: commentData,
+    });
   }
   commentbtnchange = (e) => {
     this.setState({ [e.target.name]: e.target.value, value: e.target.value });
@@ -36,14 +42,14 @@ class MainMinji extends React.Component {
   addcomment = () => {
     if (this.state.value) {
       this.setState({
-        commentarray: this.state.commentarray.concat(this.state.value),
+        commentData: this.state.commentData.concat(this.state.value),
         value: "",
         btncolor: "white",
-        id: this.state.id + 1,
+        // id: this.state.commentarray.length + 1,
       });
     }
+    // console.log("commentarray >>>" + this.state.commentarray);
   };
-
   addcommententer = (e) => {
     if (e.key === "Enter" && this.state.value) {
       this.addcomment();
@@ -51,7 +57,7 @@ class MainMinji extends React.Component {
   };
 
   render() {
-    const { value, commentarray, btncolor } = this.state;
+    const { value, commentData, btncolor } = this.state;
     return (
       <div className="Main">
         <div className="navigation">
@@ -109,8 +115,15 @@ class MainMinji extends React.Component {
                   <br />
                   <p>1분 전</p>
                   <div>
-                    {commentarray.map((e, index) => {
-                      return <Comments text={e} key={index} />;
+                    {commentData.map((comment) => {
+                      return (
+                        <Comments
+                          key={comment.id}
+                          username={comment.username}
+                          content={comment.content}
+                          isLiked={comment.isLiked}
+                        />
+                      );
                     })}
                   </div>
                 </div>

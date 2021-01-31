@@ -168,6 +168,20 @@
             border: 1px dashed gray;
             background-color: beige;
             font-size: 17px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .icon {
+              width: 20px;
+              height: 20px;
+            }
+            .username {
+              font-size: 17px;
+              font-weight: 16px;
+            }
+            .commenttext {
+              font-size: 15px;
+            }
           }
 
           h3 {
