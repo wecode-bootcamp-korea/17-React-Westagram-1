@@ -6,7 +6,7 @@ class MainJY extends React.Component {
     super();
     this.state = {
       commentInput: '',
-      commentDate: [],
+      commentData: [],
       isBtnActive: false
     }
   }
@@ -21,16 +21,16 @@ class MainJY extends React.Component {
   handleCommentAdd = (event) => {
     event.preventDefault();
     if(this.state.commentInput.length !== 0){
-      this.state.commentDate.push(this.state.commentInput)
+      this.state.commentData.push(this.state.commentInput)
       this.setState({
-        commentDate: this.state.commentDate,
+        commentData: this.state.commentData,
         commentInput: '',
       })
     }
   }
 
     render() {
-      const {commentInput, commentDate, isBtnActive} = this.state;
+      const {commentInput, commentData, isBtnActive} = this.state;
 
       return (
         <div className="Main">
@@ -97,7 +97,7 @@ class MainJY extends React.Component {
                       <div className="like_account_count"> <span>jiyeon0807</span> 님 <span>외 10명</span>이 좋아합니다</div>
                     </section>
                     <ul className="comment_list">
-                    {commentDate.map(comment => {
+                    {commentData.map(comment => {
                       return(
                         <li>
                         <a href="/">jiyeon0807</a> <span>{comment}</span>
