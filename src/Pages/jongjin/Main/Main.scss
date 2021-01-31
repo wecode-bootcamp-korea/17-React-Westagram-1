@@ -233,12 +233,13 @@ nav {
   left: 0;
   bottom: 0;
   display: block;
-  .hide {
-    display: none;
-  }
 }
 
-.emptyHeart.hide {
+.fullHeartHide {
+  display: none ;
+}
+
+.emptyHeartHide {
   visibility: hidden;
 }
 

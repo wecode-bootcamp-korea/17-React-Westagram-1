@@ -21,7 +21,9 @@ class MainJJ extends Component {
     state = {
         text: "",
         user: "Ironman ",
-        commentList: []
+        commentList: [],
+        isLike: true,
+        like: 99
     }
 
     handleInputChange = (e) => {
@@ -43,9 +45,28 @@ class MainJJ extends Component {
         })
     }
     
+    handleLike = () => {
+        this.setState({
+            isLike: !this.state.isLike
+        })
+        this.handleLikenumUp();
+    }
+
+    handleLikenumUp = () => {
+        if(this.state.isLike){
+            this.setState({
+                like: this.state.like + 1
+            })
+        } else {
+            this.setState({
+                like: this.state.like - 1
+            })   
+        }
+    }
 
     render() {
-        const {text, user, comment, commentList} = this.state
+        console.log(this.state.isLike)
+        const {text, user, comment, commentList, isLike, like} = this.state
         return (
         <>
         <nav>
@@ -101,12 +122,14 @@ class MainJJ extends Component {
                     </div>
                     <div className="pidBody">
                         <div className="pidImage">
-                            <img alt="사진" src={SpiderManpid}/>
+                            <img alt="사진" src={SpiderManpid} onDoubleClick={this.handleLike}/>
                         </div>
                         <section className="pidFunc">
                             <ul>
-                                <li><button className="emptyHeart"><i className="far fa-heart"></i></button></li>
-                                <li><button className="fullHeart"><i className="fas fa-heart"></i></button></li>
+                                <li><button className={isLike === true ? "emptyHeart" : "emptyHeartHide" }
+                                onClick={this.handleLike}><i className="far fa-heart"></i></button></li>
+                                <li><button className={isLike === true ? "fullHeartHide" : "fullHeart"}
+                                onClick={this.handleLike}><i className="fas fa-heart"></i></button></li>
                                 <li><i className="far fa-comment"></i></li>
                                 <li><i className="far fa-paper-plane"></i></li>
                             </ul>
@@ -115,7 +138,7 @@ class MainJJ extends Component {
                             </div>
                         </section>
                         <section className="likeInfo">
-                            <p>좋아요 100,000개</p>
+                            <p>좋아요 <span>{like}</span>개</p>
                         </section>
                         <section className="pidInfo">
                             <span>
