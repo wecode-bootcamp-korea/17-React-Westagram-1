@@ -177,6 +177,10 @@ body{
               
               .like_account_count  {
                 margin-left: 5px;
+
+                span{
+                  font-weight: bold;
+                }
               }
               
             }
@@ -185,14 +189,16 @@ body{
               padding: 0 16px;
               margin: 10px 0;
               
-              a {
-                font-weight: bold;
-                margin-right: 10px;
-                cursor: pointer;
+              li {
+                list-style: none;
+                margin: 3px 0;
               }
-            
-              div {
-                margin: 10px 0;
+
+              a {
+                margin-right: 10px;
+                color: black;
+                font-weight: bold;
+                text-decoration: none;
               }
             }
 
@@ -221,18 +227,19 @@ body{
                   resize: none;
                 }
                 
-                .inactive_button,
-                .active_button {
+                .inactive_btn,
+                .active_btn {
                   all: unset;
                   display: block;
                   width: 30px;
                 }
 
-                .inactive_button {
+                .inactive_btn {
                   color: var(--inactive-color);
                 }
-                .active_button {
+                .active_btn {
                   color: var(--active-color);
+                  font-weight: bold;
                   cursor: pointer;
                 }
             }
