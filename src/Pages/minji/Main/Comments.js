@@ -5,11 +5,12 @@ import "./Main.scss";
 
 class Comments extends Component {
   render() {
+    const { username, content } = this.props;
     return (
       <li className="comment">
         <div>
-          <span className="username">{this.props.username} : </span>
-          <span className="commenttext"> {this.props.content}</span>
+          <span className="username">{username} : </span>
+          <span className="commenttext"> {content}</span>
         </div>
         <span className="isLiked">
           {this.props.isLiked ? (

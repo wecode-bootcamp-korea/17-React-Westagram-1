@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import share from "../../../image/kangminji/share.png";
-// import sea from "../../../image/kangminji/sea.jpg";
 import bubble from "../../../image/kangminji/bubble.png";
 import redheart from "../../../image/kangminji/redheart.png";
 import bookmark from "../../../image/kangminji/bookmark.png";
 import me from "../../../image/kangminji/me.jpg";
 // import { commentData } from "./commentData";
-// import Comments from "./Comments";
+// import Comments from "./Comments"; // commentdata.js 용 
 
 class Feeds extends Component {
   constructor() {
@@ -41,20 +40,26 @@ class Feeds extends Component {
   };
 
   render() {
+    const {
+      profile,
+      username,
+      photo,
+      likedpeople,
+      commentone,
+      comment,
+      time,
+      btncolor,
+    } = this.props;
     return (
       <div>
         <div className="feed">
-          <img alt="profile" src={this.props.profile} className="profile" />
+          <img alt="profile" src={profile} className="profile" />
           <div className="head">
-            {this.props.username}
+            {username}
             <br />
             WeCode
           </div>
-          <img
-            alt="feedmain"
-            src={this.props.photo}
-            className="contentpicture"
-          />
+          <img alt="feedmain" src={photo} className="contentpicture" />
 
           <div className="icons">
             <div className="three">
@@ -66,15 +71,15 @@ class Feeds extends Component {
           </div>
           <div className="like">
             <img src={me} alt="likeuser" className="likeme" />
-            <h3>minji</h3>님 <h3>외 {this.props.likedpeople}</h3>이 좋아합니다
+            <h3>minji</h3>님 <h3>외 {likedpeople}</h3>이 좋아합니다
           </div>
 
           <div className="chat">
-            <h3>arum</h3> {this.props.commentone}
+            <h3>arum</h3> {commentone}
             <br />
-            <h3>dawn</h3> {this.props.comment}
+            <h3>dawn</h3> {comment}
             <br />
-            <p>{this.props.time}</p>
+            <p>{time}</p>
             <div>
               {/* {commentData.map((comment) => {
                 return (
@@ -106,7 +111,7 @@ class Feeds extends Component {
             <button
               className="commentbtn"
               onClick={this.addcomment}
-              style={{ background: this.props.btncolor }}
+              style={{ background: btncolor }}
             >
               게시
             </button>

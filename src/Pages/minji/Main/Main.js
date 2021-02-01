@@ -1,7 +1,6 @@
 // import React, { Component } from "react";
-import "./Main.scss";
 import React from "react";
-// import Comments from "./Comments";
+// import Comments from "./Comments"; //
 import instalogo from "../../../image/kangminji/instagram.png";
 import compass from "../../../image/kangminji/compass.png";
 import heart from "../../../image/kangminji/heart.png";
@@ -13,8 +12,9 @@ import me from "../../../image/kangminji/me.jpg";
 // import redheart from "../../../image/kangminji/redheart.png";
 // import bookmark from "../../../image/kangminji/bookmark.png";
 // import { commentData } from "./commentData";
-// import { FeedData } from "./FeedData";
+// import { FeedData } from "./FeedData"; // 
 import Feeds from "./Feeds";
+import "./Main.scss";
 
 class MainMinji extends React.Component {
   constructor() {
