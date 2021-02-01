@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FeedList from './FeedList/FeedList'
 import Comment from './Comment/Comment'
 import jongjin from '../../../images/jongjin/종진.jpg'
 import Ironman from '../../../images/jongjin/아이언맨.jpg'
@@ -21,6 +22,7 @@ class MainJJ extends Component {
     state = {
         text: "",
         user: "Ironman ",
+        deleteBtn: <i class="fas fa-trash-alt"></i>,
         commentList: [],
         isLike: true,
         like: 99
@@ -44,6 +46,15 @@ class MainJJ extends Component {
             text: ''
         })
     }
+
+    // handleRemove = (num) => {
+    //     const nextComments = this.state.commentList.filter((commnet) => {
+    //         return comment.num !== num;
+    //     })
+    //     this.setState({
+    //         commentList: nextComments
+    //     })
+    // }
     
     handleLike = () => {
         this.setState({
@@ -64,9 +75,21 @@ class MainJJ extends Component {
         }
     }
 
+    componentDidMount() {
+        fetch('http://localhost:3000/data/commentData.json', {
+          method: 'GET'
+        })
+          .then(res => res.json())
+          .then(data => {
+            this.setState({
+              commentList: data,     
+            });
+          });
+      }
+
     render() {
-        console.log(this.state.isLike)
-        const {text, user, comment, commentList, isLike, like} = this.state
+        console.log(this.state.commentList)
+        const {text, user, commentList, isLike, like, deleteBtn} = this.state
         return (
         <>
         <nav>
@@ -95,8 +118,8 @@ class MainJJ extends Component {
         </nav>
         <section className="main">
             <div className="feeds">
-                <div className="friendList">
-                    <ul>
+                    <FeedList />
+                    {/* <ul>
                         <li><img alt="친구" src={jongjin}/><p>My stroy</p></li>
                         <li><img alt="친구" src={Ironman}/><p>Iron Man</p></li>
                         <li><img alt="친구" src={Widow}/><p>widow</p></li>
@@ -108,8 +131,7 @@ class MainJJ extends Component {
                         <li><img alt="친구" src={Wanda}/><p>Wanda</p></li>
                         <li><img alt="친구" src={Thor}/><p>Thor</p></li>
                         <li><img alt="친구" src={Thanos}/><p>Thanos</p></li>
-                    </ul>
-                </div>
+                    </ul> */}
                 <div className="pid">
                     <div className="pidHead">
                         <div>
@@ -150,14 +172,24 @@ class MainJJ extends Component {
                             <div className="commentInfo">
                                 <p>댓글 1,000개 모두 보기</p>
                             </div>
-                            < Comment comment= {comment}
-                                      user= {user} 
-                                      text= {text}
-                                      commentList= {commentList}
-                                      commentAdd= {this.handleClick}
-                                      handleKeyPress= {this.handleKeyPress}
-                                      handleInputChange= {this.handleInputChange}
-                            />
+                            <ul>
+                                {commentList.map(comment => {
+                                    return(
+                                    < Comment key= {comment.id}
+                                    content= {comment.content}
+                                    userName= {comment.userName} 
+                                    deleteBtn = {deleteBtn}
+                                    commentList= {commentList}
+                                    /> 
+                                    );                       
+                                })}
+                            </ul>
+                        <section className="commentWrite">
+                            <input  onChange= {this.handleInputChange} onKeyDown = {this.handleKeyPress}
+                                    className= "commentInput" type="text" placeholder="댓글 달기..."
+                                    value= {text} name="text"/>
+                            <button onClick={this.commentAdd}>게시</button>
+                        </section>
                         </section>
                     </div>
                 </div>
