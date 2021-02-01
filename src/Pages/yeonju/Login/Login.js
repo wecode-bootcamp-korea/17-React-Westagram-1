@@ -23,10 +23,12 @@ class LoginYj extends React.Component {
       pw: event.target.value,
     });
   };
-  //constructor - > class생성할때 변수를 쓰기위해 state 초기값만 설정하고 함수는 나와서
-  //state는 무조건 초기값을 설정을 해줘야하기 ㄸ문에
-  //event객체는 tag에서 발생한 변화를 감지해서 변경된 객체가 넘어온다
-  //state --> setstate
+
+  changeHandlerBgColor = () => {
+    return this.state.id.includes("@") && this.state.pw.length >= 5
+      ? "blue"
+      : "";
+  };
 
   render() {
     return (
@@ -48,8 +50,12 @@ class LoginYj extends React.Component {
                 onChange={this.handlepwInput}
               />
             </div>
+
             <div className="login">
-              <button className="loginBtn" onClick={this.goToMain}>
+              <button
+                className={this.changeHandlerBgColor()}
+                onClick={this.goToMain}
+              >
                 로그인
               </button>
             </div>
