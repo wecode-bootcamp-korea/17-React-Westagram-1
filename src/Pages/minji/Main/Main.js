@@ -12,8 +12,8 @@ import me from "../../../image/kangminji/me.jpg";
 // import bubble from "../../../image/kangminji/bubble.png";
 // import redheart from "../../../image/kangminji/redheart.png";
 // import bookmark from "../../../image/kangminji/bookmark.png";
-import { commentData } from "./commentData";
-import { FeedData } from "./FeedData";
+// import { commentData } from "./commentData";
+// import { FeedData } from "./FeedData";
 import Feeds from "./Feeds";
 
 class MainMinji extends React.Component {
@@ -21,42 +21,22 @@ class MainMinji extends React.Component {
     super();
     this.state = {
       btncolor: "white",
-      comment: "",
-      commentData: [],
-      value: "",
+      // value: "",
       FeedData: [],
     };
   }
   componentDidMount() {
-    this.setState({
-      commentData: commentData,
-      FeedData: FeedData,
-    });
-  }
-  commentbtnchange = (e) => {
-    this.setState({ [e.target.name]: e.target.value, value: e.target.value });
-    if (e.target.value) {
-      this.setState({ btncolor: "skyblue" });
-    } else {
-      this.setState({ btncolor: "white" });
-    }
-  };
-
-  addcomment = () => {
-    if (this.state.value) {
-      this.setState({
-        commentData: this.state.commentData.concat(this.state.value),
-        value: "",
-        btncolor: "white",
+    fetch("http://localhost:3000/data/FeedData.json", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          // commentData: commentData,
+          FeedData: data,
+        });
       });
-    }
-
-  };
-  addcommententer = (e) => {
-    if (e.key === "Enter" && this.state.value) {
-      this.addcomment();
-    }
-  };
+  }
 
   render() {
     const { FeedData } = this.state;
@@ -92,7 +72,7 @@ class MainMinji extends React.Component {
                     likedpeople={feed.likedpeople}
                     comment={feed.comment}
                     time={feed.time}
-                    value={this.state.value}
+                    // value={this.state.value}
                     btncolor={this.state.btncolor}
                     profile={feed.profile}
                     commentone={feed.commentone}

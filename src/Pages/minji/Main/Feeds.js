@@ -5,8 +5,41 @@ import bubble from "../../../image/kangminji/bubble.png";
 import redheart from "../../../image/kangminji/redheart.png";
 import bookmark from "../../../image/kangminji/bookmark.png";
 import me from "../../../image/kangminji/me.jpg";
+// import { commentData } from "./commentData";
+// import Comments from "./Comments";
 
 class Feeds extends Component {
+  constructor() {
+    super();
+    this.state = { value: "", commentData: [], comment: "" };
+  }
+  addcomment = () => {
+    if (this.state.value) {
+      this.setState({
+        // commentData: this.state.commentData.concat(this.state.value),
+        //  commentData : this.state.commentData.push(this.state.value),
+        // commentData :commentData,
+        value: "",
+        btncolor: "white",
+      });
+    }
+  };
+
+  commentbtnchange = (e) => {
+    this.setState({ [e.target.name]: e.target.value, value: e.target.value });
+    if (e.target.value) {
+      this.setState({ btncolor: "skyblue" });
+    } else {
+      this.setState({ btncolor: "white" });
+    }
+  };
+
+  addcommententer = (e) => {
+    if (e.key === "Enter" && this.state.value) {
+      this.addcomment();
+    }
+  };
+
   render() {
     return (
       <div>
@@ -53,6 +86,11 @@ class Feeds extends Component {
                   />
                 );
               })} */}
+              {/* {this.state.commentData.map((comment)=>{
+                return(
+                  <div>{comment}</div>
+                );
+              })} */}
             </div>
           </div>
           <div className="commentbody">
@@ -61,7 +99,7 @@ class Feeds extends Component {
               placeholder="댓글 달기..."
               id="comment"
               name="comment"
-              value={this.props.value}
+              value={this.state.value}
               onKeyUp={this.addcommententer}
               onChange={this.commentbtnchange}
             />
