@@ -1,3 +1,30 @@
 .Comment{
-  
+  .comment {
+    display: flex;
+    margin: 3px 0;
+    list-style: none;
+    justify-content: space-between;
+      
+    a {
+      margin-right: 10px;
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .unlike,.like{
+      width: 12px;
+      height: 12px;      
+      background-repeat:no-repeat;
+      background-size: contain;    
+    }  
+
+    .unlike{
+      background-image: url('https://cdn4.iconfinder.com/data/icons/48-bubbles/48/39.Heart-256.png');
+    }
+
+    .like{
+      background-image: url('https://cdn4.iconfinder.com/data/icons/iconza-ios-tab-icons/60/01-heart-active-256.png');
+    }
+  }
 }

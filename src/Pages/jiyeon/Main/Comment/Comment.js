@@ -3,12 +3,17 @@ import "./Comment.scss";
 
 class Comment extends Component {
   render() {
-    const {commentData} = this.props;
+    const {name, comment, isLiked} = this.props;
 
     return (
       <div className="Comment">
-        <li>
-          <a href="/">jiyeon0807</a> <span>{commentData}</span>
+        <li className="comment">
+          <div>
+            <a href="/">{name}</a> 
+            <span>{comment}</span>
+          </div>
+          <div className={isLiked ? "like" : "unlike"}>
+          </div>
         </li>
       </div>
     );

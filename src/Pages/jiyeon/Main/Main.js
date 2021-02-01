@@ -12,6 +12,18 @@ class MainJY extends React.Component {
     }
   }
 
+  componentDidMount() {
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET'
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          commentData: data,     
+        });
+      });
+  }
+
   handleBtnActive = (event) => {
     this.setState({
       isBtnActive: this.state.commentInput.length !== 0,
@@ -21,10 +33,17 @@ class MainJY extends React.Component {
 
   handleCommentAdd = (event) => {
     event.preventDefault();
-    if(this.state.commentInput.length !== 0){
-      this.state.commentData.push(this.state.commentInput)
+    const {commentInput, commentData} = this.state;
+    if(commentInput.length !== 0){
       this.setState({
-        commentData: this.state.commentData,
+        commentData: [
+          ...commentData,{
+            id: commentData.length + 1,
+            userName: 'jiyeon0807',
+            content: commentInput,
+            isLiked: false
+          }
+        ],
         commentInput: '',
       })
     }
@@ -32,6 +51,7 @@ class MainJY extends React.Component {
 
     render() {
       const {commentInput, commentData, isBtnActive} = this.state;
+      console.log(commentData)
 
       return (
         <div className="Main">
@@ -99,7 +119,14 @@ class MainJY extends React.Component {
                     </section>
                     <ul className="comment_list">
                     {commentData.map(comment => {
-                      return <Comment commentData={comment} />
+                      return ( 
+                      <Comment 
+                        key={comment.id}
+                        name={comment.userName}
+                        comment={comment.content}
+                        isLiked = {comment.isLiked}
+                      />
+                      );
                     })}
                     </ul>
                     <div className="comment_input">
