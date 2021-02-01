@@ -117,6 +117,9 @@ class MainJY extends React.Component {
                       <img className="like_account_img" src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/122393205_722380055033414_2103976188369736018_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=102&_nc_ohc=wU4QiDUTxKUAX-4UeLp&tp=1&oh=4a8c1bb9620774d37bf9d521c7f4a8d6&oe=60387101" alt="like_account_img"/>
                       <div className="like_account_count"> <span>jiyeon0807</span> 님 <span>외 10명</span>이 좋아합니다</div>
                     </section>
+                    <section className="feed_content">
+                      
+                    </section>
                     <ul className="comment_list">
                     {commentData.map(comment => {
                       return ( 
