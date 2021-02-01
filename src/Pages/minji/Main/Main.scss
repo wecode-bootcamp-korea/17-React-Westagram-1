@@ -156,12 +156,18 @@
           .commentelement {
             display: flex;
             justify-content: space-between;
+            margin: 5px 0 5px 0;
+            .deletebtn {
+              width: 30ox;
+              height: 20px;
+              color:  rgb(61, 139, 238);
+              border: gray dotted 1px;
+              border-radius: 3px;
+              background: white;
+
+            }
           }
-          .deletebtn {
-            background-color: orange;
-            width: 50ox;
-            height: 30px;
-          }
+
           .comment {
             display: flex;
             flex-direction: row;

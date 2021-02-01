@@ -5,23 +5,29 @@ import redheart from "../../../image/kangminji/redheart.png";
 import bookmark from "../../../image/kangminji/bookmark.png";
 import me from "../../../image/kangminji/me.jpg";
 // import { commentData } from "./commentData";
-// import Comments from "./Comments"; // commentdata.js 용 
+// import Comments from "./Comments"; // commentdata.js 용
+import "./Main.scss";
 
 class Feeds extends Component {
   constructor() {
     super();
     this.state = { value: "", commentData: [], comment: "" };
   }
+  inx = 0;
   addcomment = () => {
     if (this.state.value) {
       this.setState({
-        // commentData: this.state.commentData.concat(this.state.value),
+        commentData: this.state.commentData.concat({
+          inx: this.inx,
+          comment: this.state.value,
+        }),
         //  commentData : this.state.commentData.push(this.state.value),
         // commentData :commentData,
         value: "",
         btncolor: "white",
       });
     }
+    this.inx++;
   };
 
   commentbtnchange = (e) => {
@@ -37,6 +43,12 @@ class Feeds extends Component {
     if (e.key === "Enter" && this.state.value) {
       this.addcomment();
     }
+  };
+  deleteComment = (inx) => {
+    const deleteAfter = this.state.commentData.filter((comment) => {
+      return comment.inx !== inx;
+    });
+    this.setState({ commentData: deleteAfter });
   };
 
   render() {
@@ -90,12 +102,21 @@ class Feeds extends Component {
                     isLiked={comment.isLiked}
                   />
                 );
-              })} */}
-              {/* {this.state.commentData.map((comment)=>{
-                return(
-                  <div>{comment}</div>
+              })} commentData용  */}
+              {this.state.commentData.map((comment) => {
+                return (
+                  <div className="commentelement" key={comment.inx}>
+                    <span>{comment.comment}</span>
+                    <button
+                      className="deletebtn"
+                      onClick={() => this.deleteComment(comment.inx)}
+                      key={comment.inx}
+                    >
+                      삭제
+                    </button>
+                  </div>
                 );
-              })} */}
+              })}
             </div>
           </div>
           <div className="commentbody">
