@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import me from "../../../image/kangminji/me.jpg";
 
-class storyRecommend extends Component {
+class StoryRecommend extends Component {
     render() {
         return (
             <>
@@ -200,4 +200,4 @@ class storyRecommend extends Component {
     }
 }
 
-export default storyRecommend;
+export default StoryRecommend;

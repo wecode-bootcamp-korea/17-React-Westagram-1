@@ -7,6 +7,7 @@ import heart from "../../../image/kangminji/heart.png";
 import user from "../../../image/kangminji/user.png";
 import Feeds from "./Feeds";
 import "./Main.scss";
+import StoryRecommend from "./StoryRecommend";
 
 class MainMinji extends React.Component {
   constructor() {
@@ -29,7 +30,6 @@ class MainMinji extends React.Component {
         });
       });
   }
-
   render() {
     const { FeedData } = this.state;
     return (
@@ -71,7 +71,7 @@ class MainMinji extends React.Component {
                 );
               })}
             </div>
-            <storyRecommend />
+            <StoryRecommend />
           </div>
         </div>
       </div>
