@@ -2,6 +2,7 @@ import React from "react";
 import "./Main.scss";
 import Logo from "../../../images/yeonju/a.png";
 import yeonjuLogo from "../../../images/yeonju/mainphoto.jpg";
+import AddComment from "../Main/AddComment";
 
 class Main extends React.Component {
   constructor() {
@@ -27,6 +28,7 @@ class Main extends React.Component {
   addComment = () => {
     this.setState({
       commentList: this.state.commentList.concat(this.state.commentInput),
+      commentInput: "",
     });
   };
 
@@ -147,10 +149,7 @@ class Main extends React.Component {
 
                   <div>
                     {this.state.commentList.map((comment) => (
-                      <li className="idName">
-                        <span className="yourName">yeonju</span>
-                        {comment}
-                      </li>
+                      <AddComment handleList={comment} />
                     ))}
                   </div>
                 </div>
