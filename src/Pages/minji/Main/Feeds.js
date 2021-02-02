@@ -30,26 +30,43 @@ class Feeds extends Component {
     this.inx++;
   };
 
-  commentbtnchange = (e) => {
-    this.setState({ [e.target.name]: e.target.value, value: e.target.value });
-    if (e.target.value) {
-      this.setState({ btncolor: "skyblue" });
-    } else {
-      this.setState({ btncolor: "white" });
-    }
-  };
-
   addcommententer = (e) => {
     if (e.key === "Enter" && this.state.value) {
       this.addcomment();
     }
   };
-  deleteComment = (inx) => {
-    const deleteAfter = this.state.commentData.filter((comment) => {
-      return comment.inx !== inx;
-    });
-    this.setState({ commentData: deleteAfter });
+
+
+deleteComment = (inx) => {
+  const deleteAfter = this.state.commentData.filter((comment) => {
+    return comment.inx !== inx;
+  });
+  this.setState({ commentData: deleteAfter });
+};
+  
+
+commentbtnchange=(e)=>{
+  this.setState({ [e.target.name]: e.target.value, value: e.target.value });
+  if (e.target.value) {
+    this.setState({ btncolor: "skyblue" });
+  } else {
+    this.setState({ btncolor: "white" });
+  }
   };
+
+
+  // componentDidMount() {
+  //   fetch("http://localhost:3000/data/CommnetData.json", {
+  //     method: "GET",
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       this.setState({
+  //         // commentData: commentData,
+  //         FeedData: data,
+  //       });
+  //     });
+  // }
 
   render() {
     const {
@@ -85,7 +102,8 @@ class Feeds extends Component {
             <img src={me} alt="likeuser" className="likeme" />
             <h3>minji</h3>님 <h3>외 {likedpeople}</h3>이 좋아합니다
           </div>
-
+          
+        <div>
           <div className="chat">
             <h3>arum</h3> {commentone}
             <br />
@@ -117,6 +135,7 @@ class Feeds extends Component {
                   </div>
                 );
               })}
+
             </div>
           </div>
           <div className="commentbody">
@@ -137,6 +156,9 @@ class Feeds extends Component {
               게시
             </button>
           </div>
+        </div>
+
+
         </div>
       </div>
     );

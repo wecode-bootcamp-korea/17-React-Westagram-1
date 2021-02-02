@@ -30,6 +30,7 @@ class MainMinji extends React.Component {
         });
       });
   }
+
   render() {
     const { FeedData } = this.state;
     return (
@@ -71,6 +72,7 @@ class MainMinji extends React.Component {
                 );
               })}
             </div>
+
             <StoryRecommend />
           </div>
         </div>
