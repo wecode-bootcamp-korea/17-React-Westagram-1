@@ -11,20 +11,36 @@
       font-weight: bold;
       text-decoration: none;
     }
+    
+    .comment_icon{
+      display: flex;
 
-    .unlike,.like{
+      .unlike,.like{
       width: 12px;
-      height: 12px;      
+      height: 12px;
+      margin-right: 10px;   
       background-repeat:no-repeat;
       background-size: contain;    
-    }  
+      }  
 
-    .unlike{
-      background-image: url('https://cdn4.iconfinder.com/data/icons/48-bubbles/48/39.Heart-256.png');
+      .unlike{
+        background-image: url('https://cdn4.iconfinder.com/data/icons/48-bubbles/48/39.Heart-256.png');
+      }
+
+      .like{
+        background-image: url('https://cdn4.iconfinder.com/data/icons/iconza-ios-tab-icons/60/01-heart-active-256.png');
+      }
+
+      .deleteComment{
+        width: 12px;
+        height: 12px;      
+        background-image: url('https://cdn0.iconfinder.com/data/icons/elasto-online-store/26/00-ELASTOFONT-STORE-READY_close-256.png');
+        background-repeat:no-repeat;
+        background-size: contain;
+        cursor: pointer;  
+      }
     }
 
-    .like{
-      background-image: url('https://cdn4.iconfinder.com/data/icons/iconza-ios-tab-icons/60/01-heart-active-256.png');
-    }
+    
   }
 }

@@ -3,7 +3,7 @@ import "./Comment.scss";
 
 class Comment extends Component {
   render() {
-    const {name, comment, isLiked} = this.props;
+    const {id, name, comment, isLiked, deleteComment} = this.props;
 
     return (
       <div className="Comment">
@@ -12,7 +12,9 @@ class Comment extends Component {
             <a href="/">{name}</a> 
             <span>{comment}</span>
           </div>
-          <div className={isLiked ? "like" : "unlike"}>
+          <div className="comment_icon">
+          <div className={isLiked ? "like" : "unlike"}></div>
+          <div onClick={() => deleteComment(id)} className="deleteComment"/>
           </div>
         </li>
       </div>
