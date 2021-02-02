@@ -4,6 +4,29 @@ import instalogo from '../../../images/minjoo/instagram-logo-1.png'
 import facebook from '../../../images/minjoo/facebook.svg'
 
 class Login extends Component {
+    
+     
+        constructor() {
+            super();
+            this.state = {
+                id: '',
+                password: ''
+            }
+        }
+
+    handleIdInput = (event) => {
+        this.setState({
+            id: event.target.value,
+        })
+    }
+
+    handlePwInput = (event) => {
+        this.setState({
+            password: event.target.value
+        })
+        console.log(this.state)
+    }
+
     render() {
         return (
 <div className="Login">
@@ -17,8 +40,8 @@ class Login extends Component {
               {/* <!-- 로그인 폼 --> */}
               <div className="contain">
                   <img className="insta-logo" src={ instalogo } />
-                  <input type="text" className="btn" placeholder="전화번호, 사용자 이름 또는 이메일" />
-                  <input type="password" className="btn" placeholder="비밀번호" />
+                  <input onChange={this.handleIdInput} value={this.state.id} type="text" className="btn" placeholder="전화번호, 사용자 이름 또는 이메일" />
+                  <input onChange={this.handlePwInput} value={this.state.password} type="password" className="btn" placeholder="비밀번호" />
                   <button className="login-btn">로그인</button>
                   <div className="or">
                       <hr className="hr1"/>
