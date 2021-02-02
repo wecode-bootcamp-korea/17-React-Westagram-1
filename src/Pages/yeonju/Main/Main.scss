@@ -3,6 +3,11 @@ body {
   margin: 0px;
 }
 
+ul,
+li {
+  list-style: none;
+}
+
 .Main {
   .nav {
     width: 100%;
@@ -216,6 +221,11 @@ body {
           margin: 0px;
         }
 
+        .yourName {
+          font-weight: bolder;
+          margin-right: 10px;
+        }
+
         .type-comment {
           position: relative;
           .comment-input {
@@ -230,7 +240,6 @@ body {
           }
 
           .button {
-            // position: absolute;
             bottom: 10px;
             right: 10px;
             font-size: 15px;

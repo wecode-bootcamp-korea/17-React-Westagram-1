@@ -4,7 +4,35 @@ import Logo from "../../../images/yeonju/a.png";
 import yeonjuLogo from "../../../images/yeonju/mainphoto.jpg";
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      commentList: [],
+      commentInput: "",
+    };
+  }
+
+  handleInputChange = (e) => {
+    this.setState({
+      commentInput: e.target.value,
+    });
+  };
+
+  handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      this.addComment();
+    }
+  };
+
+  addComment = () => {
+    this.setState({
+      commentList: this.state.commentList.concat(this.state.commentInput),
+    });
+  };
+
   render() {
+    console.log("여기는 리스트", this.state.commentList);
+    console.log("여기는 인풋", this.state.commentInput);
     return (
       <div className="Main">
         <div className="nav">
@@ -116,13 +144,25 @@ class Main extends React.Component {
                     <p className="comment-text">hayanmaeum109</p>
                     <p className="comment-text2">요새 새로나온 개껌 맛있더라</p>
                   </div>
+
+                  <div>
+                    {this.state.commentList.map((comment) => (
+                      <li className="idName">
+                        <span className="yourName">yeonju</span>
+                        {comment}
+                      </li>
+                    ))}
+                  </div>
                 </div>
 
                 <div id="type-comment">
                   <input
                     className="comment-input"
-                    type="text"
+                    stype="text"
                     placeholder="댓글 달기..."
+                    onChange={this.handleInputChange}
+                    onKeyPress={this.handleKeyPress}
+                    value={this.state.commentInput}
                   />
                   <button className="button" type="submit">
                     게시

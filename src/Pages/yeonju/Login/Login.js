@@ -68,3 +68,7 @@ class LoginYj extends React.Component {
 }
 
 export default withRouter(LoginYj);
+
+//input값을 넣엇을때 input값 저장하기
+//버튼 눌럴ㅆ을때 input값을 dv안으로
+///concat or spread /빈배열을 만들고 코멘트를 스트링으로 바꾸고
