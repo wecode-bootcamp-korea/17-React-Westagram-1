@@ -5,11 +5,13 @@
     list-style: none;
     justify-content: space-between;
       
-    a {
+    p {
+      display: inline;
       margin-right: 10px;
       color: black;
       font-weight: bold;
       text-decoration: none;
+      cursor: pointer;
     }
     
     .comment_icon{

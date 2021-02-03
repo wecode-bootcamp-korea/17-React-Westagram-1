@@ -13,9 +13,7 @@ class MainJY extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/commentData.json", {
-      method: "GET",
-    })
+    fetch("/data/commentData.json")
       .then((res) => res.json())
       .then((data) => {
         this.setState({
@@ -34,7 +32,7 @@ class MainJY extends React.Component {
   handleCommentAdd = (event) => {
     event.preventDefault();
     const { commentInput, commentData } = this.state;
-    if (commentInput.length !== 0) {
+    if (commentInput.length) {
       this.setState({
         commentData: [
           ...commentData,
@@ -51,13 +49,10 @@ class MainJY extends React.Component {
   };
 
   deleteComment = (id) => {
-    console.log("num >>> ", id);
     const { commentData } = this.state;
-
     const leftComments = commentData.filter((comment) => {
       return id !== comment.id;
     });
-
     this.setState({
       commentData: leftComments,
     });
@@ -65,14 +60,13 @@ class MainJY extends React.Component {
 
   render() {
     const { commentInput, commentData, isBtnActive } = this.state;
-    console.log(commentData);
 
     return (
       <div className="Main">
         <nav>
           <div className="wrap">
             <div className="instagram_logo">westagram</div>
-            <form action="">
+            <form>
               <input type="text" placeholder="검색" className="user_input" />
             </form>
             <div className="logo">
@@ -94,7 +88,7 @@ class MainJY extends React.Component {
         <main>
           <div className="main_container">
             <div className="feeds">
-              <article className="article_feeds">
+              <article className="article_feed">
                 <header>
                   <img
                     src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/94368627_630268440862734_1319761630933811200_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=fFVUpWOvd-QAX-gXsKX&tp=1&oh=103e707a288d14bdda8d43029bfff699&oe=6033FE63"
@@ -210,7 +204,6 @@ class MainJY extends React.Component {
                       alt="like_account_img"
                     />
                     <div className="like_account_count">
-                      {" "}
                       <span>jiyeon0807</span> 님 <span>외 10명</span>이
                       좋아합니다
                     </div>

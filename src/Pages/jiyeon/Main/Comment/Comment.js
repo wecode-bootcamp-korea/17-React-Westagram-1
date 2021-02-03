@@ -9,7 +9,7 @@ class Comment extends Component {
       <div className="Comment">
         <li className="comment">
           <div>
-            <a href="/">{name}</a> 
+            <p href="/">{name}</p> 
             <span>{comment}</span>
           </div>
           <div className="comment_icon">

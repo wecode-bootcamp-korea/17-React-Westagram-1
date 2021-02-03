@@ -1,24 +1,8 @@
-:root{
-  --container-border: 1px solid #DBDBDB;
-  --container-border-radius: 1px;
-  --light-gray: #FAFAFA;
-  --inactive-color: #b2dffc;
-  --active-color: #0095F6;
-}
-
-*{
-  box-sizing: border-box;
-}
-
-body{
-  background-color: var(--light-gray);
-  font-size: 14px;
-  height: 100%;
-}
-
-.instagram_logo{
-  font-family: 'Lobster', cursive;
-}
+$container-border: 1px solid #DBDBDB;
+$container-border-radius: 1px;
+$light-gray: #FAFAFA;
+$inactive-color: #b2dffc;
+$active-color: #0095F6;
 
 .Main {
   nav {
@@ -27,7 +11,7 @@ body{
     width: 100%;
     height: 54px;
     padding: 0 20px;
-    border-bottom: var(--container-border);
+    border-bottom: $container-border;
     background-color: #ffffff;
     z-index: 1;
 
@@ -43,11 +27,12 @@ body{
 
       .instagram_logo {
         font-size: 25px;
+        font-family: 'Lobster', cursive
       }
       .user_input {
-        border: var(--container-border);
+        border: $container-border;
         box-sizing: border-box;
-        background-color: var(--light-gray);
+        background-color: $light-gray;
         padding: 3px;
         background-repeat: no-repeat;
       }
@@ -78,7 +63,7 @@ body{
     justify-content: center;
     width: 100%;
     margin-top: 30px;
-    background-color: var(--light-gray);
+    background-color: $light-gray;
 
     .main_container {
       display: flex;
@@ -93,12 +78,12 @@ body{
         margin-right: 30px;
         width: 100%;
 
-        .article_feeds {
+        .article_feed {
           display: inline-block;
           vertical-align: top;
           width: 614px;
           margin-bottom: 60px;
-          border: var(--container-border);
+          border: $container-border;
           background-color: #ffffff;
 
           header {
@@ -142,9 +127,7 @@ body{
             height: 100%;
           }
 
-          /* feed_detail */
           .feed_detail {
-            width: 100%;
             margin-top: 4px;
 
             .feed_icon {
@@ -198,7 +181,7 @@ body{
               height: 56px;
               margin-top: 4px;
               padding: 0 16px;
-              border-top: var(--container-border);
+              border-top: $container-border;
               font-size: 14px;
 
               form {
@@ -222,10 +205,10 @@ body{
                 }
 
                 .inactive_btn {
-                  color: var(--inactive-color);
+                  color: $inactive-color;
                 }
                 .active_btn {
-                  color: var(--active-color);
+                  color: $active-color;
                   font-weight: bold;
                   cursor: pointer;
                 }

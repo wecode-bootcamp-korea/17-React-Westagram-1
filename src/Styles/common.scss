@@ -4,9 +4,12 @@
 	justify-content: center;
 }
 
-// sass 파일에서
+*{
+  box-sizing: border-box;
+}
 
-
-.logo {
-	@extend %flexCenter
+body{
+  background-color: $light-gray;
+  font-size: 14px;
+  height: 100%;
 }
