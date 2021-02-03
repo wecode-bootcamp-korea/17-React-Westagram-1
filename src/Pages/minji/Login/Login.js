@@ -4,33 +4,49 @@ import "./Login.scss";
 class LoginMinji extends React.Component {
   constructor() {
     super();
-    this.state = { id: "", password: "", color: "rgb(185, 216, 256)" };
+    this.state = { email: "", password: "", color: true };
   }
 
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(e.target.name, e.target.value);
   };
+
   checkValidation = () => {
-    if (this.state.id.includes("@") && this.state.password.length > 4) {
-      this.props.history.push("/main-minji");
-    } else {
-      alert("형식이 올바르지 않습니다");
+    if (this.state.email.includes("@") && this.state.password.length > 4) {
+      fetch("http://10.58.1.95:8000/user/login", {
+        method: "POST",
+        body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password,
+        }),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          if (result.message === "SUCCESS") {
+            // localStorage.setItem("token", result.token);
+            this.props.history.push("/main-minji");
+            console.log(result.message);
+          } else {
+            alert("회원가입 해주세요");
+            console.log(result.message);
+          }
+        });
     }
-    console.log(this.state.id);
-    console.log(this.state.password);
   };
+  
   checkInput = (e) => {
-    if (this.state.id.includes("@") && this.state.password.length > 4) {
-      this.setState({ color: "blue" });
-    }
-    if (!this.state.id || !this.state.password) {
-      this.setState({ color: "rgb(185, 216, 256)" });
-    }
+    this.setState({
+      color:
+        this.state.email.includes("@") && this.state.password.length > 4
+          ? false
+          : true,
+    });
+
     if (e.key === "Enter") {
       this.checkValidation();
     }
   };
+
   render() {
     return (
       <div className="Login">
@@ -40,15 +56,15 @@ class LoginMinji extends React.Component {
             <input
               type="text"
               placeholder="전화번호, 사용자이름 또는 이메일"
-              id="idform"
-              name="id"
+              className="idform"
+              name="email"
               onChange={this.handleInput}
               onKeyUp={this.checkInput}
             />
             <input
               type="password"
               placeholder="비밀번호"
-              id="passwordform"
+              className="passwordform"
               name="password"
               onChange={this.handleInput}
               onKeyUp={this.checkInput}
@@ -57,7 +73,7 @@ class LoginMinji extends React.Component {
               type="button"
               id="loginbtn"
               onClick={this.checkValidation}
-              style={{ background: this.state.color }}
+              className={this.state.color ? "buttonone" : "buttontwo"}
             >
               로그인
             </button>

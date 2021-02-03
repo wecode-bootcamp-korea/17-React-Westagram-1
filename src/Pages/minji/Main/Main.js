@@ -13,7 +13,7 @@ class MainMinji extends React.Component {
   constructor() {
     super();
     this.state = {
-      btncolor: "white",
+      // btncolor: "white",
       // value: "",
       FeedData: [],
     };
@@ -65,7 +65,7 @@ class MainMinji extends React.Component {
                     likedpeople={feed.likedpeople}
                     comment={feed.comment}
                     time={feed.time}
-                    btncolor={this.state.btncolor}
+                    // btncolor={btncolor}
                     profile={feed.profile}
                     commentone={feed.commentone}
                   />

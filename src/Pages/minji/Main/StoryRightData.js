@@ -1,4 +1,4 @@
-export const StoryRight = [
+export const StoryRightData = [
   {
     id: 1,
     img:

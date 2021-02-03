@@ -25,20 +25,25 @@
       font-family: "Open Sans", sans-serif;
       font-size: 70px;
 
-      #idform {
+      .idform {
         margin-top: 50px;
         background-color: rgb(249, 249, 249);
         font-size: 18px;
+        border:1px dotted gray;
+        border-radius: 5px;
+        color: gray;
       }
 
-      #passwordform {
+      .passwordform {
         margin-top: 5px;
         background-color: rgb(249, 249, 249);
         font-size: 18px;
+        border: 1px dotted gray;
+        border-radius: 5px;
       }
 
-      #idform,
-      #passwordform {
+      .idform,
+      .passwordform {
         width: 350px;
         height: 50px;
       }
@@ -48,14 +53,26 @@
         font-family: "Lobster", cursive;
       }
 
-      #loginbtn {
+
+      .buttonone {
         margin-top: 20px;
         width: 350px;
         height: 50px;
         border-radius: 5px;
-        background-color: rgb(185, 216, 256);
+        background-color:rgb(185, 216, 256);
         color: white;
         font-size: 30px;
+        border: none;
+      }
+      .buttontwo {
+        margin-top: 20px;
+        width: 350px;
+        height: 50px;
+        border-radius: 5px;
+        background-color: blue;
+        color: white;
+        font-size: 30px;
+        border: none;
       }
     }
   }

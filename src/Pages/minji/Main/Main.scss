@@ -156,7 +156,7 @@
           .commentelement {
             display: flex;
             justify-content: space-between;
-            margin: 5px 0 5px 0;
+            margin: 5px 0;
             .deletebtn {
               width: 30ox;
               height: 20px;
@@ -219,23 +219,53 @@
             margin-left: 8px;
           }
 
-          .commentbtn {
-            height: 30px;
-            width: 50px;
-            margin: 10px 10px 10px 10px;
-            border-radius: 3px;
-            color: blue;
-            border: 1px gray dotted;
-            box-shadow: none;
-            font-family: "Gothic A1", sans-serif;
-            font-weight: 20px;
-          }
+          // .commentbtn {
+          //   height: 30px;
+          //   width: 50px;
+          //   margin: 10px 10px 10px 10px;
+          //   border-radius: 3px;
+          //   color: blue;
+          //   border: 1px gray dotted;
+          //   box-shadow: none;
+          //   font-family: "Gothic A1", sans-serif;
+          //   font-weight: 20px;
+          // }
+.btncolorone{
+  height: 30px;
+  width: 50px;
+  margin: 10px 10px 10px 10px;
+  border-radius: 3px;
+  color: blue;
+  background-color: skyblue;
+  border: 1px gray dotted;
+  box-shadow: none;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 20px;
+}
+.btncolortwo{
+  height: 30px;
+  width: 50px;
+  margin: 10px 10px 10px 10px;
+  border-radius: 3px;
+  color:blue;
+  background-color: white;
+  border: 1px gray dotted;
+  box-shadow: none;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 20px;
+}
+
+
+
+
+
+
         }
       }
     }
 
     /* side-content */
-
+.StoryRecommend{
     .content-right {
       width: 300px;
       height: 700px;
@@ -400,7 +430,7 @@
         }
       }
     }
-
+  }
     .outside {
       position: absolute;
       width: 100%;

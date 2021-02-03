@@ -13,10 +13,6 @@ commentData : []
 }
 }
 
-
-
-
-
   render() {
     // const { username, content } = this.props;
     return (

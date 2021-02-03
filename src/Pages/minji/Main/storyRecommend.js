@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 import me from "../../../image/kangminji/me.jpg";
-import { StoryRight } from "./StoryRight";
+import { StoryRightData } from "./StoryRightData";
 
 class StoryRecommend extends Component {
   constructor() {
     super();
-    this.state = { StoryData: [] };
+    this.state = { storyData: [] };
   }
 
   componentDidMount() {
-    this.setState({ StoryData: StoryRight });
+    this.setState({ storyData: StoryRightData });
   }
 
   render() {
+    const { storyData } = this.state;
     return (
-      <>
+      <div className="StoryRecommend">
         <div className="content-right">
           <div className="rightone">
             <img src={me} alt="profilephoto" className="me" />
@@ -28,7 +29,7 @@ class StoryRecommend extends Component {
             </div>
 
             <ul>
-              {this.state.StoryData.map((story) => {
+              {storyData.map((story) => {
                 return (
                   <li>
                     <img
@@ -53,7 +54,7 @@ class StoryRecommend extends Component {
             </div>
 
             <ul>
-              {this.state.StoryData.map((story) => {
+              {storyData.map((story) => {
                 return (
                   <li>
                     <img
@@ -73,7 +74,7 @@ class StoryRecommend extends Component {
             </ul>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }

@@ -11,49 +11,49 @@ import "./Main.scss";
 class Feeds extends Component {
   constructor() {
     super();
-    this.state = { value: "", commentData: [], comment: "" };
+    this.state = { value: "", commentData: [], comment: "", btncolor: false };
   }
   inx = 0;
-  addcomment = () => {
+  addComment = () => {
     if (this.state.value) {
+      //  const addText = this.state.commentData.concat({
+      //     inx: this.inx,
+      //     comment: this.state.value
+      //   })
+      const addText = [
+        ...this.state.commentData,
+        ...[{ inx: this.inx, comment: this.state.value }],
+      ];
       this.setState({
-        commentData: this.state.commentData.concat({
-          inx: this.inx,
-          comment: this.state.value,
-        }),
-        //  commentData : this.state.commentData.push(this.state.value),
-        // commentData :commentData,
+        commentData: addText,
         value: "",
-        btncolor: "white",
+        btncolor: false,
       });
+      console.log(addText);
     }
     this.inx++;
   };
 
-  addcommententer = (e) => {
+  addCommententer = (e) => {
     if (e.key === "Enter" && this.state.value) {
       this.addcomment();
     }
   };
 
-
-deleteComment = (inx) => {
-  const deleteAfter = this.state.commentData.filter((comment) => {
-    return comment.inx !== inx;
-  });
-  this.setState({ commentData: deleteAfter });
-};
-  
-
-commentbtnchange=(e)=>{
-  this.setState({ [e.target.name]: e.target.value, value: e.target.value });
-  if (e.target.value) {
-    this.setState({ btncolor: "skyblue" });
-  } else {
-    this.setState({ btncolor: "white" });
-  }
+  deleteComment = (inx) => {
+    const deleteAfter = this.state.commentData.filter((comment) => {
+      return comment.inx !== inx;
+    });
+    this.setState({ commentData: deleteAfter });
   };
 
+  commentbtnchange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+      value: e.target.value,
+      btncolor: e.target.value ? true : false,
+    });
+  };
 
   // componentDidMount() {
   //   fetch("http://localhost:3000/data/CommnetData.json", {
@@ -77,7 +77,6 @@ commentbtnchange=(e)=>{
       commentone,
       comment,
       time,
-      btncolor,
     } = this.props;
     return (
       <div>
@@ -102,16 +101,16 @@ commentbtnchange=(e)=>{
             <img src={me} alt="likeuser" className="likeme" />
             <h3>minji</h3>님 <h3>외 {likedpeople}</h3>이 좋아합니다
           </div>
-          
-        <div>
-          <div className="chat">
-            <h3>arum</h3> {commentone}
-            <br />
-            <h3>dawn</h3> {comment}
-            <br />
-            <p>{time}</p>
-            <div>
-              {/* {commentData.map((comment) => {
+
+          <div>
+            <div className="chat">
+              <h3>arum</h3> {commentone}
+              <br />
+              <h3>dawn</h3> {comment}
+              <br />
+              <p>{time}</p>
+              <div>
+                {/* {commentData.map((comment) => {
                 return (
                   <Comments
                     key={comment.id}
@@ -121,44 +120,40 @@ commentbtnchange=(e)=>{
                   />
                 );
               })} commentData용  */}
-              {this.state.commentData.map((comment) => {
-                return (
-                  <div className="commentelement" key={comment.inx}>
-                    <span>{comment.comment}</span>
-                    <button
-                      className="deletebtn"
-                      onClick={() => this.deleteComment(comment.inx)}
-                      key={comment.inx}
-                    >
-                      삭제
-                    </button>
-                  </div>
-                );
-              })}
-
+                {this.state.commentData.map((comment) => {
+                  return (
+                    <div className="commentelement" key={comment.inx}>
+                      <span>{comment.comment}</span>
+                      <button
+                        className="deletebtn"
+                        onClick={() => this.deleteComment(comment.inx)}
+                        key={comment.inx}
+                      >
+                        삭제
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="commentbody">
+              <input
+                type="form"
+                placeholder="댓글 달기..."
+                id="comment"
+                name="comment"
+                value={this.state.value}
+                onKeyUp={this.addCommententer}
+                onChange={this.commentbtnchange}
+              />
+              <button
+                className={this.state.btncolor ? "btncolorone" : "btncolortwo"}
+                onClick={this.addComment}
+              >
+                게시
+              </button>
             </div>
           </div>
-          <div className="commentbody">
-            <input
-              type="form"
-              placeholder="댓글 달기..."
-              id="comment"
-              name="comment"
-              value={this.state.value}
-              onKeyUp={this.addcommententer}
-              onChange={this.commentbtnchange}
-            />
-            <button
-              className="commentbtn"
-              onClick={this.addcomment}
-              style={{ background: btncolor }}
-            >
-              게시
-            </button>
-          </div>
-        </div>
-
-
         </div>
       </div>
     );
