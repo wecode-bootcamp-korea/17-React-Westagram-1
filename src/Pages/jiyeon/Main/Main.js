@@ -52,7 +52,6 @@ class MainJY extends React.Component {
 
   deleteComment = (id) => {
     console.log("num >>> ", id);
-    // console.log("event.target >>> ", event.target);
     const { commentData } = this.state;
 
     const leftComments = commentData.filter((comment) => {

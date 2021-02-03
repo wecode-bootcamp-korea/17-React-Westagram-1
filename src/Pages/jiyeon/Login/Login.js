@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 import facebook_logo from '../../../images/jiyeon/facebook_icon.png'
 import './Login.scss';
 
@@ -23,6 +23,33 @@ class LoginJY extends React.Component {
     this.setState({
       isBtnActive: this.state.idInput.indexOf('@') !== -1 && this.state.pwInput.length >= 5 ? true : false
     });
+    // if(isBtnActive){
+    //   this.handleLogin;
+    // }
+  }
+
+  goToMain = (event) => {
+    event.preventDefault();
+    const {idInput, pwInput} = this.state;
+    
+    fetch('http://10.58.2.122:8000/user' ,{
+      method: "POST",
+      body: JSON.stringify({
+        email: idInput ,
+        password: pwInput,
+        name: 'asdfg',
+        phone_number:'019-8888-1234'
+      }),
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      if(result.meassage === "SUCCESS"){
+        alert('성공')
+      }
+    })
+    
+    // this.props.history.push('/main-jiyeon');
   }
 
   render() {
@@ -49,9 +76,7 @@ class LoginJY extends React.Component {
               placeholder="비밀번호"
               name="pwInput"
             />
-            <Link to="/main-jiyeon">
-              <button className= {isBtnActive ? "active_btn" : "inactive_btn"}> 로그인 </button>
-            </Link>
+            <button onClick={this.goToMain} className={isBtnActive ? "active_btn" : "inactive_btn"}> 로그인 </button>
           </form>
           <div className="underline_content">
             <div className="underline"></div>
