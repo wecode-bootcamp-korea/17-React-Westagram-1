@@ -1,0 +1,51 @@
+.main-sub {
+  margin-top: 50px;
+  border: 1px solid rgb(255, 255, 255);
+  margin-left: 30px;
+  padding-left: 10px;
+  position: relative;
+
+  .main-sub2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 70px 10px 0px 0px;
+    margin-bottom: 20px;
+    .main-sub2__title {
+      font-weight: bolder;
+      color: rgb(156, 154, 154);
+      padding-top: 10px;
+    }
+
+    .main-sub2__all {
+      font-size: 13px;
+      font-weight: bolder;
+      padding-top: 13px;
+    }
+  }
+
+  .friendsRecomentdation {
+    padding-left: 0px;
+
+    width: 300px;
+
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+
+    .dog-friends {
+      width: 70px;
+      height: 90px;
+      border-radius: 50%;
+
+      .friendImg {
+        width: 100%;
+        margin-bottom: 21px;
+        border-radius: 50%;
+      }
+    }
+    .friendsText {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

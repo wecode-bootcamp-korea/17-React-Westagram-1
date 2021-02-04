@@ -30,6 +30,39 @@ class LoginYj extends React.Component {
       : "";
   };
 
+  helper = () => {
+    if (this.state.id.includes("@") && this.state.pw.length > 5) {
+      fetch("", {
+        method: "POST",
+        body: JSON.stringify({
+          email: this.state.id,
+          password: this.state.pw,
+        }),
+      }).then((response) => response.json());
+      // }).then((res) => response.json());
+      // .then((res) => this.joinCheck(res));
+      // .then((res) => this.loginCheck(res));
+    } else {
+      // alert("너 회원가입 실패함ㅋ")
+    }
+  };
+
+  joinCheck = (res) => {
+    if (res.message === "SUCCESS") {
+      alert("zz추카");
+    } else {
+      alert("zzㅈㅅ");
+    }
+  };
+  loginCheck = (res) => {
+    if (res.message === "SUCCESS") {
+      localStorage.getItem("token", res.access_token);
+      this.goToMain();
+    } else {
+      alert("로그인 실패 ㅋ");
+    }
+  };
+
   render() {
     return (
       <div className="Login">
@@ -54,7 +87,7 @@ class LoginYj extends React.Component {
             <div className="login">
               <button
                 className={this.changeHandlerBgColor()}
-                onClick={this.goToMain}
+                onClick={this.helper}
               >
                 로그인
               </button>
@@ -68,7 +101,3 @@ class LoginYj extends React.Component {
 }
 
 export default withRouter(LoginYj);
-
-//input값을 넣엇을때 input값 저장하기
-//버튼 눌럴ㅆ을때 input값을 dv안으로
-///concat or spread /빈배열을 만들고 코멘트를 스트링으로 바꾸고
