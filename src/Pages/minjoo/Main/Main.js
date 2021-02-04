@@ -10,6 +10,7 @@ import like from "../../../images/minjoo/like.svg";
 import dots from "../../../images/minjoo/fi-rr-menu-dots.svg";
 import compass from "../../../images/minjoo/compass.svg";
 import chat from "../../../images/minjoo/chat-bubble.svg";
+// import IdButton from "../../../Components/IdButton";
 
 class Main extends Component {
   constructor() {
@@ -28,7 +29,11 @@ class Main extends Component {
 
   handlePostButton = () => {
     this.setState({
-      commentList: this.state.commentList.concat([this.state.Commentvalue]),
+      commentList: this.state.commentList.concat(
+        // <IdButton /> +
+        [this.state.commentValue]
+      ),
+      commentValue: "",
     });
   };
 
@@ -263,7 +268,10 @@ class Main extends Component {
                       className="startcomment"
                     />
                     <span>
-                      <button onClick={this.handlePost} className="lets-post">
+                      <button
+                        onClick={this.handlePostButton}
+                        className="lets-post"
+                      >
                         게시
                       </button>
                     </span>
