@@ -20,95 +20,96 @@ a {
   padding: 10px 0;
   background-color: #FFFFFF;
   box-shadow: 2px 2px 2px 2px gray;
-}
 
-.title {
-  height: 80px;
-  line-height: 80px;
-  h1 {
-    font-family: 'Yusei Magic', sans-serif;
-    font-size: 40px;
-    margin: 0;
-  }
-}
 
-.loginBox {
-  padding: 10px 0;
-  img {
-    width: 220px;
-    height: 88px;
-  }
-}
-
-.loginForm {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 24px;
-  input {
-    width: 268px;
-    height: 36px;
-    padding: 9px 0px 7px 8px;
-    background-color: #FAFAFA;
-    border: 1px solid #dbdbdb;
-    border-radius: 5px;
-  }
-  &:first-child {
-    margin-bottom: 5px;
-  }
-}
-
-.loginBtn button {
-  width: 268px;
-  height: 30px;
-  margin: 8px 40px;
-  background-color: #B2dffc;
-  color: white;
-  border: transparent;
-  border-radius: 5px;
-  cursor: pointer;
-  &:focus {
-      border: none;
-  outline: none;
-  background-color: #B2dffc;
-  }
-}
-
-.loginBtn.active button {
-  background-color: #0095F6;
-}
-
-.divider {
-  display: flex;
-  flex-basis: 100%;
-  align-items: center;
-  width: 268px;
-  height: 15px;
-  margin: 10px 40px 18px;
-  font-size: 12px;
-  span {
-    width: 30px;
-    margin: 0 16px;
-  }
-  &::before , &::after{
-    content: "";
-    height: 1px;
-    background-color:#dbdbdb;
-    width: 45%;
-  }
-}
-
-.otherLogin {
-  width: 268px;
-  outline: none;
-  background-color: transparent;
-  border:transparent;
-  color: #385185;
-  cursor: pointer;
-    i {
-      margin-right: 8px;
-  }
-    span {
-      font-size: 14px;
+  .title {
+    height: 80px;
+    line-height: 80px;
+    h1 {
+      font-family: 'Yusei Magic', sans-serif;
+      font-size: 40px;
+      margin: 0;
     }
+  }
+
+  .loginBox {
+    padding: 10px 0;
+    img {
+      width: 220px;
+      height: 88px;
+    }
+  }
+
+  .loginForm {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 24px;
+    input {
+      width: 268px;
+      height: 36px;
+      padding: 9px 0px 7px 8px;
+      background-color: #FAFAFA;
+      border: 1px solid #dbdbdb;
+      border-radius: 5px;
+    }
+    &:first-child {
+      margin-bottom: 5px;
+    }
+  }
+
+  .loginBtn button {
+    width: 268px;
+    height: 30px;
+    margin: 8px 40px;
+    background-color: #B2dffc;
+    color: white;
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    &:focus {
+      border: none;
+    outline: none;
+    background-color: #B2dffc;
+    }
+  }
+
+  .loginBtn.active button {
+    background-color: #0095F6;
+  }
+
+  .divider {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    width: 268px;
+    height: 15px;
+    margin: 10px 40px 18px;
+    font-size: 12px;
+    span {
+      width: 30px;
+      margin: 0 16px;
+    }
+    &::before , &::after{
+      content: "";
+      height: 1px;
+      background-color:#dbdbdb;
+      width: 45%;
+    }
+  }
+
+  .otherLogin {
+    width: 268px;
+    outline: none;
+    background-color: transparent;
+    border:transparent;
+    color: #385185;
+    cursor: pointer;
+      i {
+        margin-right: 8px;
+    }
+      span {
+        font-size: 14px;
+    }
+  }
 }

@@ -124,145 +124,29 @@ nav {
   height: 1000px;
   margin: 0 auto;
   padding-top: 90px;
-}
 
-.feeds {
-  width: 600px;
-  height: 1000px;
-  background-color: transparent;
-}
 
-.friendList {
-  width: 600px;
-  height: 100px;
-  padding: 16px 0;
-  margin-bottom: 24px; 
-  border: 1px solid #DBDBDB;
-  background-color: white;
-  overflow: hidden;
+  .feeds {
+    width: 600px;
+    height: 1000px;
+    background-color: transparent;
+  }
 
-  ul {
+  .feedList {
+    width: 600px;
+    height: 100px;
+    padding: 16px 0;
     display: flex;
-    width: 100vw;
-    li {
-      text-align: center;
-    }
+    margin-bottom: 24px; 
+    border: 1px solid #DBDBDB;
+    background-color: white;
+    overflow:hidden;
   }
 
-  img {
-    width: 50px;
-    height: 50px;
-    border: 1px solid rgb(212, 11, 78);
-    padding: 2px;
-    border-radius: 25px;
-    margin: 0 10px;
+  .commentInfo {
+    margin: 3px 0;
+    color: #8e8e8e;
   }
-
-  p {
-    margin: 0 5px;
-    font-size: 12px;
-    text-align: center;
-  }
-}
-
-.pid {
-  margin: 20px 0;
-  border: 1px solid #DBDBDB;
-}
-
-.pidHead {
-  width: 600px;
-  height: 60px;
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  img {
-    width: 42px;
-    height: 20px;
-    margin-right: 10px;
-  }
-
-  span {
-    font-size: 12px;
-  }
-}
-
-.pidHead > div {
-  display: flex;
-  align-items: center;
-}
-
-.pidBody {
-  width: 600px;
-  margin: 0;
-  border: 1px solid #DBDBDB;
-
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-.pidImage {
-  height: auto;
-}
-
-.pidFunc {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 16px;
-  margin-top: 4px;
-
-  ul {
-    display: flex;
-    position: relative;
-  }
-
-  i {
-    font-size: 24px;
-    padding: 8px;
-    cursor: pointer;
-  }
-}
-
-.fullHeart {
-  position: absolute;
-  color: red;
-  left: 0;
-  bottom: 0;
-  display: block;
-}
-
-.fullHeartHide {
-  display: none ;
-}
-
-.emptyHeartHide {
-  visibility: hidden;
-}
-
-.likeInfo {
-  padding: 0 22px;
-  margin-top: 4px;
-  font-size: 14px;
-}
-
-.pidInfo {
-  padding: 0 22px;
-  margin-top: 4px;
-  font-size: 14px;
-
-  a{
-    font-weight: bold;
-  }
-}
-
-.commentInfo {
-  margin: 3px 0;
-  color: #8e8e8e;
-}
 
 .commentemptyHeart.hide {
   display: none;
@@ -274,6 +158,11 @@ nav {
   .hide {
     display: none;
   }
+}
+
+.commentBox {
+  margin-top: 8px;
+  padding: 0 22px;
 }
 
 .right {
@@ -395,4 +284,5 @@ nav {
     font-size: 11px;
     color: #c7c7c7;
   }
+}
 }

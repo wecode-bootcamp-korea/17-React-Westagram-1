@@ -1,0 +1,19 @@
+.story {
+  display: flex;
+  margin-right: 5px;
+
+  img {
+    width: 56px;
+    height: 56px;
+    border: 1px solid rgb(212, 11, 78);
+    padding: 2px;
+    border-radius: 50%;
+    margin: 0 10px;
+  }
+
+  p {
+    margin: 0 5px;
+    font-size: 12px;
+    text-align: center;
+  }
+}

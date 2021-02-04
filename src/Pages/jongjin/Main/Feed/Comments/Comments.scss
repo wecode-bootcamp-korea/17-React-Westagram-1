@@ -30,10 +30,10 @@
 }
 
 .commentWrite {
-  margin-top: 4px;
-  padding: 10px 22px;
-  padding-left: 0;
-  width: 580px;
+  margin: 0;
+  margin-top: 6px;
+  padding: 10px 0;
+  width: 555px;
   display: flex;
   border-top: 1px solid #DBDBDB;
 
@@ -48,8 +48,8 @@
   }
 
   button {
-    width: 60px;
-    padding: 5px 10px;
+    width: 50px;
+    padding: 5px 0;
     font-size: 14px;
     color: #7cc6f8;
     cursor: pointer;
