@@ -7,7 +7,7 @@ class LoginJY extends React.Component {
   constructor() {
     super();
     this.state = {
-      idValue: "", //idVaiue 로 수정
+      idValue: "",
       pwValue: "",
       isBtnActive: false,
     };
@@ -25,11 +25,11 @@ class LoginJY extends React.Component {
   
   handleBtnActive = () => {
     const { idValue, pwValue } = this.state;
-    const btnCondition = idValue.includes("@") && pwValue.length >= 5;
+    const btnCondition = idValue.includes("@") && pwValue.length > 4;
     
     this.setState({
       isBtnActive: btnCondition 
-    },() => this.handleBtnActive('입력중')); 
+    }); 
   };
 
   goToMain = (event) => {
