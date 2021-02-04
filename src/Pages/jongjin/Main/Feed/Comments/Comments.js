@@ -6,7 +6,7 @@ class Commnets extends Component {
 
   state = {
     text: "",
-    user: "Ironman ",
+    user: "playck ",
     commentList: [],
     deleteBtn: <i class="fas fa-trash-alt"></i>,
     disabled: true
@@ -25,9 +25,23 @@ class Commnets extends Component {
   }
 
   handleClick = () => {
+    const { commentList , user, text } = this.state
     this.setState({
-        commentList: this.state.commentList.concat(this.state.text),
+        commentList: [
+          ...commentList,
+          {
+            id: commentList.length + 1,
+            userName: user,
+            content: text
+          }
+        ],
         text: ''
+    });
+  };
+
+  handleRemoveComment = (num) => {
+    this.setState({
+
     })
   }
 

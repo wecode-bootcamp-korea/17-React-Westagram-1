@@ -57,30 +57,6 @@ class MainJJ extends Component {
         const { feed ,feedList } = this.state
         return (
         <>
-        <nav>
-            <div className="navbar">
-                <div className="navbarLeft">
-                    <span>westargram</span>
-                </div>
-                <div className="navbarMid">
-                    <i className="fas fa-search"></i>
-                    <input type="text" placeholder="검색"/>
-                </div>
-                <div className="navbarRight">
-                    <img alt="탐색" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"/>
-                    <img alt="하트" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"/>
-                    <img className="profile" alt="마이페이지" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png"/>
-                    <ul className="dropMenu">
-                        <li><i className="far fa-user-circle"></i><div>프로필</div></li>
-                        <li><i className="far fa-bookmark"></i><div>저장됨</div></li>   
-                        <li><i className="fas fa-cog"></i><div>설정</div></li>
-                        <li><i className="fas fa-sync-alt"></i><div>계정 전환</div></li>
-                        <hr/>
-                        <li><a href="login.html">로그아웃</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
         <section className="main">
             <div>
                 <div className="feedList">

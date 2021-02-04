@@ -1,0 +1,23 @@
+.comment {
+  .commnetLine {
+    display: flex;
+    justify-content: space-between;
+    > div {
+      display: flex;
+    }
+  }
+  &:hover .delBtn{
+    display: block;
+  }
+  
+  p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .delBtn {
+    margin-right: 8px;
+    cursor: pointer;
+    display: none;
+  }
+}

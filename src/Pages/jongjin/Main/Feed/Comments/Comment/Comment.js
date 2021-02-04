@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Comment.scss'
 
 class Comment extends Component {
   render() {
@@ -7,9 +8,14 @@ class Comment extends Component {
       <>
         <div className="comment">        
           <li key={key} className="commnetLine">
-          <span className="userName">{userName}</span>
-          <span className="content">{content}</span>
-          <span className="delBtn">{deleteBtn}</span></li>
+            <div>
+              <span className="userName">{userName}</span>
+              <p className="content">{content}</p>
+            </div>
+            <div>
+              <span className="delBtn">{deleteBtn}</span>
+            </div>
+          </li>
         </div>
       </>
     );
