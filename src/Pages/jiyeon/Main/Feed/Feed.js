@@ -1,6 +1,6 @@
 import React from "react";
 import Comment from "../Comment/Comment";
-import "../Main.scss";
+import "./Feed.scss";
 
 class Feed extends React.Component {
   constructor() {
