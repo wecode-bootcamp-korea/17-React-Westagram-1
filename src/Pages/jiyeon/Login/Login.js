@@ -38,7 +38,7 @@ class LoginJY extends React.Component {
     const btnCondition = idValue.includes("@") && pwValue.length >= 5;
 
     if (btnCondition) {
-      fetch("http://10.58.4.186:8000/user", {
+      fetch("http://10.58.57.61:8000/user/signin", {
         method: "POST",
         body: JSON.stringify({
           email: idValue,
@@ -58,6 +58,21 @@ class LoginJY extends React.Component {
       });
     }
   };
+
+  tokenGive = (event) => {
+    event.preventDefault();
+    let token = localStorage.getItem('token');
+    fetch("http://10.58.57.61:8000/user/signin", {
+      method: 'POST',
+      headers: {
+        token: token
+      }
+    })
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+    })
+  }
 
   render() {
     const { idValue, pwValue, isBtnActive } = this.state;
@@ -89,6 +104,7 @@ class LoginJY extends React.Component {
             >
               로그인
             </button>
+            <button onClick={this.tokenGive} style={{backgroundColor: 'purple'}} className="active_btn">토큰 보내기</button>
           </form>
           <div className="underline_content">
             <div className="underline"></div>

@@ -60,7 +60,7 @@ class Feed extends React.Component {
 
   render() {
     const { commentInput, commentData, isBtnActive } = this.state;
-    const {id, accountImg, accountName, userComment, feedPlace, feedImg, likeAccountImg, likeAccountCount} = this.props
+    // const {id, accountImg, accountName, userComment, feedPlace, feedImg, likeAccountImg, likeAccountCount} = this.props
 
     return (
       <div className="Feed">
