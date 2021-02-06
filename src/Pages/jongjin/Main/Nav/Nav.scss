@@ -1,0 +1,92 @@
+nav {
+  position: fixed; 
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #DBDBDB;
+  background-color: #ffffff;
+  z-index: 1000;
+  
+  .navbar {
+    display:flex;
+    width: 1000px;
+    height: 65px;
+    line-height: 70px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+  
+    .navbarLeft {
+      span {
+        font-size: 26px;
+        font-family: 'Yusei Magic', sans-serif;
+      }
+    }
+  
+    .navbarMid {
+      position: relative;
+      input {
+        height: 30px;
+        width: 215px;
+        text-align: center;
+        background-color: #FAFAFA;
+        border: 1px solid #DBDBDB;
+        &:focus {
+          text-align: left;
+          padding-left: 30px;
+        }
+      }
+    }
+  
+    .navbarRight {
+      display: flex;
+      align-items: center;
+      margin-right: 55px;;
+      position: relative;
+      text-align: center;
+      img {
+        width: 30px;
+        margin-right: 15px;
+        cursor: pointer;
+      }
+  
+      .dropMenuOn {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        display: block;
+        border: 1px solid #DBDBDB;
+        li {
+          width: 130px;
+          height: 40px;
+          cursor: pointer;
+          line-height: 40px;
+          padding-left: 20px;
+          display: flex;
+          &:hover {
+            background-color: #FAFAFA;
+          }
+          span {
+            line-height: 38px;
+            font-size: 18px;
+            width: 18px;
+            height: 10px;
+            margin-right: 4px;
+          }
+        }
+        div {
+          margin-left: 10px;
+          font-size: 14px;
+        }
+        .logout {
+          margin-left: 0;
+        }
+      }
+      .dropMenuOff {
+        display: none;
+      }
+    }
+  }
+}
+

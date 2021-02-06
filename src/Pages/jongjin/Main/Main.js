@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Nav from './Nav/Nav'
 import FeedList from './FeedList/FeedList'
 import Feed from './Feed/Feed'
 import jongjin from '../../../images/jongjin/종진.jpg'
@@ -57,6 +58,7 @@ class MainJJ extends Component {
         const { feed ,feedList } = this.state
         return (
         <>
+        <Nav />
         <section className="main">
             <div>
                 <div className="feedList">
