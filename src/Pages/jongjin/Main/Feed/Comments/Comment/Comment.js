@@ -3,7 +3,7 @@ import './Comment.scss'
 
 class Comment extends Component {
   render() {
-    const { key , content, userName, deleteBtn } = this.props
+    const { key, id , content, userName, deleteBtn ,handleRemoveComment } = this.props
     return (
       <>
         <div className="comment">        
@@ -13,7 +13,7 @@ class Comment extends Component {
               <p className="content">{content}</p>
             </div>
             <div>
-              <span className="delBtn">{deleteBtn}</span>
+              <span className="delBtn" onClick={() => handleRemoveComment(id)}>{deleteBtn}</span>
             </div>
           </li>
         </div>

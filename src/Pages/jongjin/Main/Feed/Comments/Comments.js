@@ -14,19 +14,35 @@ class Commnets extends Component {
 
   handleInputChange = (e) => {
     this.setState({
-        text: e.target.value
-    });
+        text: e.target.value,
+    }, () => this.commentBtnOnOff()
+  )}
+
+  commentBtnOnOff = () => {
+    if(this.state.text){
+      this.setState({
+        disabled: false
+      })
+    } else {
+      this.setState({
+        disabled: true
+      })
+    }
   }
 
   handleKeyPress = (e) => {
     if(e.key === 'Enter') {
-        this.handleClick();
+        this.handleAddComment();
+        this.setState({
+          disabled: true
+        })
     }
   }
 
-  handleClick = () => {
+  handleAddComment = () => {
     const { commentList , user, text } = this.state
-    this.setState({
+    if(text){
+      this.setState({
         commentList: [
           ...commentList,
           {
@@ -37,11 +53,15 @@ class Commnets extends Component {
         ],
         text: ''
     });
-  };
+    }
+  }
 
-  handleRemoveComment = (num) => {
-    this.setState({
-
+  handleRemoveComment = (id) => {
+    const nextCommnets = this.state.commentList.filter(
+      (commnet) => {return commnet.id !== id})
+      
+      this.setState({
+      commentList: nextCommnets
     })
   }
 
@@ -58,22 +78,25 @@ class Commnets extends Component {
   }
 
   render() {
+    const { deleteBtn, text, disabled} = this.state
       return (
         <div className="commentList">
           { this.state.commentList.map(comment => {
               return(
                 <Comment key={comment.id}
+                id= {comment.id}
                 content= {comment.content}
                 userName= {comment.userName} 
-                deleteBtn = {this.state.deleteBtn}
+                deleteBtn = {deleteBtn}
+                handleRemoveComment = {this.handleRemoveComment}
                 />
               )
           })}
           <section className="commentWrite">
             <input  onChange= {this.handleInputChange} onKeyDown = {this.handleKeyPress}
                     className= "commentInput" type="text" placeholder="댓글 달기..."
-                    value= {this.state.text} name="text"/>
-            <button onClick={this.commentAdd}>게시</button>
+                    value= {text} name="text"/>
+            <button style={{color: disabled ? "#7cc6f8" : "#0095F6"}} onClick={this.handleAddComment} disabled={false}>게시</button>
           </section>
         </div>      
     );
