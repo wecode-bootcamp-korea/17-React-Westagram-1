@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './Comment.scss'
 
 class Comment extends Component {
+
   render() {
-    const { key, id , content, userName, deleteBtn ,handleRemoveComment } = this.props
+    const { key, id, content, userName, likeBtn, likedBtn, isLiked, deleteBtn, handleRemoveComment } = this.props
     return (
       <>
         <div className="comment">        
@@ -14,6 +15,14 @@ class Comment extends Component {
             </div>
             <div>
               <span className="delBtn" onClick={() => handleRemoveComment(id)}>{deleteBtn}</span>
+              <button
+                className={isLiked ? "emptyHeartHide" : "emptyHeart" }>
+                {likeBtn}
+              </button>
+              <button
+                className={isLiked ? "comfullHeart" : "fullHeartHide" }>
+                {likedBtn}
+              </button> 
             </div>
           </li>
         </div>

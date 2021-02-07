@@ -9,6 +9,8 @@ class Commnets extends Component {
     user: "playck ",
     commentList: [],
     deleteBtn: <i class="fas fa-trash-alt"></i>,
+    likeBtn: <i class="far fa-heart"></i>,
+    likedBtn: <i class="fas fa-heart"></i>,
     disabled: true
   }
 
@@ -78,7 +80,7 @@ class Commnets extends Component {
   }
 
   render() {
-    const { deleteBtn, text, disabled} = this.state
+    const { likeBtn, likedBtn, deleteBtn, text, disabled} = this.state
       return (
         <div className="commentList">
           { this.state.commentList.map(comment => {
@@ -87,7 +89,10 @@ class Commnets extends Component {
                 id= {comment.id}
                 content= {comment.content}
                 userName= {comment.userName} 
-                deleteBtn = {deleteBtn}
+                deleteBtn= {deleteBtn}
+                likeBtn= {likeBtn}
+                likedBtn= {likedBtn}
+                isLiked= {comment.isLiked}
                 handleRemoveComment = {this.handleRemoveComment}
                 />
               )

@@ -15,7 +15,29 @@
     line-height: 24px;
   }
 
+  .emptyHeart {
+    margin-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .comfullHeart {
+    margin-right: 5px;
+    font-size: 14px;
+    color: red;
+    cursor: pointer;
+  } 
+
+  .fullHeartHide {
+    display: none ;
+  }
+  
+  .emptyHeartHide {
+    display: none ;
+  }
+
   .delBtn {
+    font-size: 13px;
     margin-right: 8px;
     cursor: pointer;
     display: none;
