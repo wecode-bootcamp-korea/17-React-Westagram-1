@@ -71,15 +71,14 @@ class Feed extends React.Component {
               alt="profile"
               className="profile"
             />
-            <a
-              className="account_name"
-              href="https://www.instagram.com/jamongs824/"
-            >
-              jamongs824
-            </a>
-            <a className="feed_place" href="/">
-              제주도
-            </a>
+            <div className="feed_header">
+              <p className="account_name">
+                jamongs824
+              </p>
+              <a className="feed_place" href="/">
+                제주도
+              </a>
+            </div>
             <button type="button">
               <svg
                 aria-label="옵션 더 보기"
