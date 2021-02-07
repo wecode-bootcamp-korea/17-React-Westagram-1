@@ -104,7 +104,6 @@ class LoginJY extends React.Component {
             >
               로그인
             </button>
-            <button onClick={this.tokenGive} style={{backgroundColor: 'purple'}} className="active_btn">토큰 보내기</button>
           </form>
           <div className="underline_content">
             <div className="underline"></div>

@@ -1,0 +1,61 @@
+$container-border: 1px solid #DBDBDB;
+$container-border-radius: 1px;
+$light-gray: #FAFAFA;
+$inactive-color: #b2dffc;
+$active-color: #0095F6;
+$thick-gray: #8E8E8E;
+
+.Nav{
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 54px;
+    padding: 0 20px;
+    border-bottom: $container-border;
+    background-color: #ffffff;
+    z-index: 1;
+
+    .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 935px;
+      height: 100%;
+      margin: 0 auto;
+
+      .instagram_logo {
+        font-size: 25px;
+        font-family: 'Lobster', cursive
+      }
+      .user_input {
+        border: $container-border;
+        box-sizing: border-box;
+        background-color: $light-gray;
+        padding: 3px;
+        background-repeat: no-repeat;
+      }
+
+      .user_input::-webkit-input-placeholder {
+        background-image: url(https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-256.png);
+        background-size: contain;
+        background-position: 50px center;
+        background-repeat: no-repeat;
+        text-align: center;
+      }
+
+      .icon {
+        display: inline-block;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      img {
+        margin: 5px;
+        width: 22px;
+      }
+    }
+  }
+}

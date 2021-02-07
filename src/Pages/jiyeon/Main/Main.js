@@ -1,4 +1,5 @@
 import React from "react";
+import Nav from "./Nav/Nav"
 import Feed from "./Feed/Feed";
 import "./Main.scss";
 
@@ -40,28 +41,7 @@ class MainJY extends React.Component {
       
     return (
       <div className="Main">
-        <nav>
-          <div className="wrap">
-            <div className="instagram_logo">westagram</div>
-            <form>
-              <input type="text" placeholder="검색" className="user_input" />
-            </form>
-            <div className="logo">
-              <img
-                src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
-                alt="explore"
-              />
-              <img
-                src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
-                alt="active_feed_logo"
-              />
-              <img
-                src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png"
-                alt="mypage_logo"
-              />
-            </div>
-          </div>
-        </nav>
+        <Nav />
         <main>
           <div className="main_container">
             <div className="feeds">
