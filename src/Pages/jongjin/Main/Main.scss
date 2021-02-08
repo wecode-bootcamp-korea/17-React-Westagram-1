@@ -61,14 +61,15 @@ button {
   padding: 0 22px;
 }
 
-.right {
-  position: absolute;
-}
-
 .mainRight {
   width: 300px;
   height: 1000px;
   margin-left: 30px;
+  position: relative;
+}
+
+.mainAside {
+  position: fixed;
 }
 
 .myInfo {
@@ -145,6 +146,7 @@ button {
     font-size: 14px;
     color:  #0095F6;
     font-weight: 700;
+    padding-top: 12px;
   }
 }
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from './Nav/Nav'
 import FeedList from './FeedList/FeedList'
 import Feed from './Feed/Feed'
+import MainAside from'./MainAside/MainAside'
 import jongjin from '../../../images/jongjin/종진.jpg'
 import Thor from '../../../images/jongjin/토르.jpg'
 import Hulk from '../../../images/jongjin/헐크.png'
@@ -16,7 +17,8 @@ class MainJJ extends Component {
         super();
         this.state = {
         feed : [],
-        feedList: []
+        feedList: [],
+        recommendList: []
         }
       }
 
@@ -52,10 +54,20 @@ class MainJJ extends Component {
                 feedList: data,     
             });
         });
+
+        fetch('data/recommendData.json', {
+            method: 'GET'
+          })
+          .then(res => res.json())
+          .then(data => {
+            this.setState({
+                recommendList: data,     
+            });
+        });
     } 
 
     render() {
-        const { feed ,feedList } = this.state
+        const { feed , feedList, recommendList } = this.state
         return (
         <>
         <Nav />
@@ -89,6 +101,7 @@ class MainJJ extends Component {
                 </div>
             </div>
             <div className="mainRight">
+                <div className="mainAside">
                 <section className="myInfo">
                     <div>
                         <img alt="친구" src={jongjin}/>
@@ -106,57 +119,16 @@ class MainJJ extends Component {
                         <p>회원님을 위한 추천</p>
                         <a href="#">모두 보기</a>
                     </div>
-                    <ul>
-                        <li>
-                            <div>
-                                <img alt="친구" src={Captain}/>
-                                <div>
-                                    <a>Captain</a>
-                                    <p>회원님을 위한 추천</p>
-                                </div>
-                            </div>
-                            <a href="#" className="follow">팔로우</a>
-                        </li>
-                        <li>
-                            <div>
-                                <img alt="친구" src={Thanos}/>
-                                <div>
-                                    <a>Thanos</a>
-                                    <p>Thanos님이 대결을 요청합니다</p>
-                                </div>
-                            </div>
-                            <a href="#"  className="follow">파이트</a>
-                        </li>
-                        <li>
-                            <div>
-                                <img alt="친구" src={Hulk}/>
-                                <div>
-                                    <a>Hulk</a>
-                                    <p>인스타 할줄 모릅니다.</p>
-                                </div>
-                            </div>
-                            <a href="#" className="follow">팔로우</a>
-                        </li>
-                        <li>
-                            <div>
-                                <img alt="친구" src={Thor}/>
-                                <div>
-                                    <a>Thor</a>
-                                    <p>회원님을 위한 추천</p>
-                                </div>
-                            </div>
-                            <a href="#" className="follow">팔로우</a>
-                        </li>
-                        <li>
-                            <div>
-                                <img alt="친구" src={Widow}/>
-                                <div>
-                                    <a>Black Widow</a>
-                                    <p>회원님을 위한 추천</p>
-                                </div>
-                            </div>
-                            <a href="#" className="follow">팔로우</a>
-                        </li>
+                    <ul className="recommendList">
+                        {recommendList.map( recommend => {
+                            return(
+                                <MainAside key = {recommend.id}
+                                    friendImg = {recommend.img}
+                                    user = {recommend.userName}
+                                    follow = {recommend.follow}
+                                />
+                            )
+                        })}
                     </ul>
                     <div className="companyInfo">
                         <ul>
@@ -174,6 +146,7 @@ class MainJJ extends Component {
                         <p>© 2021 INSTAGRAM FROM FACEBOOK</p>
                     </div>
                 </section>
+            </div>
             </div>
         </section>
         </>

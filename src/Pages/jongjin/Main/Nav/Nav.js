@@ -21,7 +21,6 @@ class Nav extends Component {
   }
 
   render() {
-    console.log(this.state.navMenu)
     return (
       <nav>
         <div className="navbar">
