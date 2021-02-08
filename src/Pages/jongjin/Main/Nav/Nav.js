@@ -10,7 +10,9 @@ class Nav extends Component {
   constructor() {
     super();
     this.state = {
-    navMenu : false
+    navMenu : false,
+    text: "",
+    feedList: []
     }
   }
 
@@ -20,7 +22,31 @@ class Nav extends Component {
     })
   }
 
+  handleInputChange = (e) => {
+    this.setState({
+      text: e.target.value
+    }
+  )}
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/feedListData.json', {
+      method: 'GET'
+    })
+    .then(res => res.json())
+    .then(data => {
+      this.setState({
+          feedList: data,     
+      });
+  });
+  }
+  
   render() {
+    const { feedList, text } = this.state
+    const filterData = feedList.filter( user => {
+      const regexp = new RegExp( text, 'ig')
+      return user.userName.match( regexp )
+    })
+
     return (
       <nav>
         <div className="navbar">
@@ -28,7 +54,20 @@ class Nav extends Component {
             <span>westargram</span>
           </div>
           <div className="navbarMid">
-            <input type="text" placeholder="검색"/>
+            <input onChange={this.handleInputChange} value={this.state.text} type="text" placeholder="검색"/>
+            { this.state.text.length > 0 &&
+              <ul className="searchList"> 
+              {
+              filterData.map(user => {
+                return(
+                  <div className="filteredUser">
+                    <img alt="사진" src={user.img}/>
+                    <li>{user.userName}</li>
+                  </div>
+                );
+              })}  
+              </ul>
+            }
           </div>
           <div className="navbarRight">
             <img alt="탐색" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"/>

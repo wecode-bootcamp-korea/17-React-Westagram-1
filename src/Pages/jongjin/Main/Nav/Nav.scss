@@ -35,6 +35,35 @@ nav {
           padding-left: 30px;
         }
       }
+      .searchList {
+        position: absolute;
+        background-color: white;
+        border: 1px solid #8e8e8e;
+        border-radius: 25px;
+        &:last-child {
+          border-bottom: 0;
+        }
+        .filteredUser {
+          display: flex;
+          align-items: center;
+          width: 215px;
+          background-color: white;
+          border-bottom: 1px solid #8e8e8e;
+          border-radius: 25px 25px 0 0;
+          &:last-child {
+            border-radius: 25px;
+          }
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-left: 10px;
+          }
+          li {
+            margin-left: 10px;
+          }
+        }
+      }
     }
   
     .navbarRight {

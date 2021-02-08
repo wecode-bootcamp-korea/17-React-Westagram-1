@@ -4,11 +4,6 @@ import FeedList from './FeedList/FeedList'
 import Feed from './Feed/Feed'
 import MainAside from'./MainAside/MainAside'
 import jongjin from '../../../images/jongjin/종진.jpg'
-import Thor from '../../../images/jongjin/토르.jpg'
-import Hulk from '../../../images/jongjin/헐크.png'
-import Widow from '../../../images/jongjin/블랙위도우.jpg'
-import Thanos from '../../../images/jongjin/타노스.png'
-import Captain from '../../../images/jongjin/캡틴아메리카.jpg'
 import './Main.scss'
 
 class MainJJ extends Component {

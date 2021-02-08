@@ -74,7 +74,9 @@ class Commnets extends Component {
       }
       return comment
     })
-    this.setState({commentLisr: nextLikedCommnets})
+    this.setState({
+      commentList: nextLikedCommnets
+    })
   }
 
   componentDidMount() {
