@@ -67,6 +67,16 @@ class Commnets extends Component {
     })
   }
 
+  handleLikeComment = (id) => {
+    const nextLikedCommnets = this.state.commentList.map((comment) => {
+      if( comment.id === id) {
+        comment.isLiked = !comment.isLiked
+      }
+      return comment
+    })
+    this.setState({commentLisr: nextLikedCommnets})
+  }
+
   componentDidMount() {
     fetch('http://localhost:3000/data/commentData.json', {
       method: 'GET'
@@ -94,6 +104,7 @@ class Commnets extends Component {
                 likedBtn= {likedBtn}
                 isLiked= {comment.isLiked}
                 handleRemoveComment = {this.handleRemoveComment}
+                handleLikeComment = {this.handleLikeComment}
                 />
               )
           })}
