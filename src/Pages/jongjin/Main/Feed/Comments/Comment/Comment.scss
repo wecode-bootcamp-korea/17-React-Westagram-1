@@ -26,6 +26,8 @@
     font-size: 14px;
     color: red;
     cursor: pointer;
+    animation: heartIcon .5s;
+    animation-iteration-count: 1; 
   } 
 
   .fullHeartHide {

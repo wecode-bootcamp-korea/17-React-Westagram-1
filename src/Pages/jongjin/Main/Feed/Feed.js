@@ -21,10 +21,10 @@ class Feed extends Component {
     this.setState({
       isLike: !this.state.isLike
     })
-}
+  }
   
   render() {
-    const { userImg, user, feedImg, storyName, story, like } = this.props
+    const { userImg, user, feedImg, storyName, story, like} = this.props
     return (
         <div className="feed">
           <div className="feedHead">
@@ -39,6 +39,11 @@ class Feed extends Component {
           <div className="feedBody">
             <div className="feedImage">
                 <img alt="사진" src={feedImg} onDoubleClick={this.handleLike}/>
+                { this.state.isLike && 
+                  <div className="heart">
+                    <i className="fas fa-heart"></i>
+                  </div>
+                }
               </div>
             <section className="feedFunc">
             <ul>
