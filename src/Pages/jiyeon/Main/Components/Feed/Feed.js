@@ -19,7 +19,7 @@ class Feed extends React.Component {
         this.setState({
           commentData: data,
         });
-      });    
+      });
   }
 
   handleBtnActive = (event) => {
@@ -60,23 +60,23 @@ class Feed extends React.Component {
 
   render() {
     const { commentInput, commentData, isBtnActive } = this.state;
-    // const {id, accountImg, accountName, userComment, feedPlace, feedImg, likeAccountImg, likeAccountCount} = this.props
+    const {id, accountImg, accountName, userComment, feedPlace, feedImg, likeAccountImg, likeAccountCount} = this.props
 
     return (
       <div className="Feed">
         <article className="article_feed">
           <header>
             <img
-              src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/94368627_630268440862734_1319761630933811200_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=fFVUpWOvd-QAX-gXsKX&tp=1&oh=103e707a288d14bdda8d43029bfff699&oe=6033FE63"
+              src={accountImg}
               alt="profile"
               className="profile"
             />
             <div className="feed_header">
               <p className="account_name">
-                jamongs824
+                {accountName}
               </p>
               <a className="feed_place" href="/">
-                제주도
+                {feedPlace}
               </a>
             </div>
             <button type="button">
@@ -96,7 +96,7 @@ class Feed extends React.Component {
           <div>
             <img
               className="feed_img"
-              src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s750x750/95664798_3109612645767721_5437186584810510550_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=101&_nc_ohc=RT3P8HAsKLYAX9as55K&tp=1&oh=8d179792d6a5fbf7bf5e506009b79346&oe=6038E9B3"
+              src={feedImg}
               alt="feed"
             />
           </div>
@@ -160,15 +160,21 @@ class Feed extends React.Component {
             <section className="like_account">
               <img
                 className="like_account_img"
-                src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/122393205_722380055033414_2103976188369736018_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=102&_nc_ohc=wU4QiDUTxKUAX-4UeLp&tp=1&oh=4a8c1bb9620774d37bf9d521c7f4a8d6&oe=60387101"
+                src={likeAccountImg}
                 alt="like_account_img"
               />
               <div className="like_account_count">
-                <span>jiyeon0807</span> 님 <span>외 10명</span>이 좋아합니다
+                <span>{accountName}</span> 님 <span>외 {likeAccountCount}명</span>이 좋아합니다.
               </div>
             </section>
             <section className="feed_content"></section>
             <ul className="comment_list">
+              <li className="comment">
+                <div>
+                  <p href="/">{accountName}</p> 
+                  <span>{userComment}</span>
+                </div>
+              </li>
               {commentData.map((comment) => {
                 return (
                   <Comment

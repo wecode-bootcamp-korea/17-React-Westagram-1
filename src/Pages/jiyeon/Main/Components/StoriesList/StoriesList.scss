@@ -1,0 +1,29 @@
+$container-border: 1px solid #dbdbdb;
+$container-border-radius: 1px;
+$light-gray: #fafafa;
+$inactive-color: #b2dffc;
+$active-color: #0095f6;
+$thick-gray: #8e8e8e;
+
+.StoriesList {
+  .story_container {
+    width: 612px;
+    margin-bottom: 24px;
+    padding: 16px 0;
+    border: $container-border;
+    border-radius: $container-border-radius;
+    background-color: #FFFFFF;
+    overflow: scroll;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar{
+      display: none;
+    }
+
+    .story_list{
+      display: flex;
+    }
+  }
+}

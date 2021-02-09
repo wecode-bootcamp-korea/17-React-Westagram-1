@@ -103,7 +103,23 @@ $active-color: #0095F6;
       .comment_list {
         padding: 0 16px;
         margin: 10px 0;
+
+        .comment {
+        display: flex;
+        margin: 5px 0;
+        list-style: none;
+        justify-content: space-between;
+          
+        p {
+          display: inline;
+          margin-right: 10px;
+          color: black;
+          font-weight: bold;
+          text-decoration: none;
+          cursor: pointer;
+        }
       }
+    }
 
       .comment_input {
         display: flex;
