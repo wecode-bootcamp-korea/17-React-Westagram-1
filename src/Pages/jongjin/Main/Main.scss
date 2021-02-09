@@ -182,4 +182,22 @@ button {
     color: #c7c7c7;
   }
 }
+
+@media screen and (max-width: 968px){
+  .mainRight {
+    display: none;
+  }
+
+  .mainLeft {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .feedList {
+      margin:0;
+      padding-bottom: 82px;
+    }
+  }
+}
 }

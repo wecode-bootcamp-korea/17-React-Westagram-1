@@ -55,7 +55,7 @@ class MainJJ extends Component {
         <>
         <Nav />
         <section className="main">
-            <div>
+            <div className="mainLeft">
                 <div className="feedList">
                     {feedList.map(story => {
                         return(
