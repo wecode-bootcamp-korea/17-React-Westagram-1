@@ -1,4 +1,5 @@
 import React from "react";
+import Story from "./Story/Story"
 import Feed from "./Feed/Feed";
 import "./Main.scss";
 
@@ -65,9 +66,7 @@ class MainJY extends React.Component {
         <main>
           <div className="main_container">
             <div className="feeds">
-              <button onClick={this.makeFeed} className="sendFeed">
-                보내자 
-              </button>
+              <Story />
               {feedData.map((feed) => {
                 return (
                 <Feed
