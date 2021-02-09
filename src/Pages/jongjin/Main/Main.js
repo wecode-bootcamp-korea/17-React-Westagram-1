@@ -17,18 +17,6 @@ class MainJJ extends Component {
         }
       }
 
-    handleLikenumUp = () => {
-        if(this.state.isLike){
-            this.setState({
-                like: this.state.like + 1
-            })
-        } else {
-            this.setState({
-                like: this.state.like - 1
-            })   
-        }
-    }
-
     componentDidMount() {
         fetch('http://localhost:3000/data/feedData.json',{
             method: 'GET'

@@ -7,24 +7,39 @@ class Feed extends Component {
   constructor() {
     super();
     this.state = {
-    isLike : true
+    isLike : true,
+    like: 0
     }
   }
 
   componentDidMount() {
     this.setState({
-      isLike: this.props.isLike
+      isLike: this.props.isLike,
+      like: this.props.like
     })
   }
 
   handleLike = () => {
     this.setState({
       isLike: !this.state.isLike
-    })
+    }, () => this.handleLikenumUp())
+  }
+
+  handleLikenumUp = () => {
+    if(this.state.isLike){
+        this.setState({
+          like: this.state.like + 1
+        })
+    } else {
+        this.setState({
+          like: this.state.like - 1
+        })   
+    }
   }
   
   render() {
-    const { userImg, user, feedImg, storyName, story, like} = this.props
+    const { userImg, user, feedImg, storyName, story} = this.props
+    const { isLike, like } = this.state
     return (
         <div className="feed">
           <div className="feedHead">
@@ -39,7 +54,7 @@ class Feed extends Component {
           <div className="feedBody">
             <div className="feedImage">
                 <img alt="사진" src={feedImg} onDoubleClick={this.handleLike}/>
-                { this.state.isLike && 
+                { isLike && 
                   <div className="heart">
                     <i className="fas fa-heart"></i>
                   </div>
@@ -49,14 +64,14 @@ class Feed extends Component {
             <ul>
               <li>
                 <button 
-                  className={this.state.isLike ? "emptyHeartHide" : "emptyHeart" }
+                  className={isLike ? "emptyHeartHide" : "emptyHeart" }
                   onClick={this.handleLike}>
                 <i class="far fa-heart"></i>
                 </button>
               </li>    
               <li>
                 <button 
-                  className={this.state.isLike ? "fullHeart" : "fullHeartHide" }
+                  className={isLike ? "fullHeart" : "fullHeartHide" }
                   onClick={this.handleLike}>
                   <i className="fas fa-heart"></i>
                 </button>  
@@ -78,7 +93,7 @@ class Feed extends Component {
                 <br/>
                   {story}
               </span>
-              <div className="commentAll">댓글 {like}개 모두 보기</div>
+              <div className="commentAll">댓글 2,021개 모두 보기</div>
             </section>
           <section className="commentBox">
             <Comments />
