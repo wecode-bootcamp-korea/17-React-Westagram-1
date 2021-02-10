@@ -19,8 +19,7 @@ a {
   border: 1px solid #dbdbdb;
   padding: 10px 0;
   background-color: #FFFFFF;
-  box-shadow: 2px 2px 2px 2px gray;
-
+  box-shadow:  0 6px 6px -4px  gray;
 
   .title {
     height: 80px;
@@ -48,6 +47,7 @@ a {
     input {
       width: 268px;
       height: 36px;
+      margin-bottom: 5px;
       padding: 9px 0px 7px 8px;
       background-color: #FAFAFA;
       border: 1px solid #dbdbdb;

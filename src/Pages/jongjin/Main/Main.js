@@ -89,7 +89,7 @@ class MainJJ extends Component {
                     <div>
                         <img alt="친구" src={jongjin}/>
                         <div>
-                            <a>kimgjongjin0920</a>
+                            <a>jongjin0920</a>
                             <p>김종진</p>
                         </div>
                     </div>
