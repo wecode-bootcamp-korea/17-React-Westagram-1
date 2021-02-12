@@ -50,7 +50,7 @@ class MainJY extends React.Component {
       },
       body: JSON.stringify({
         image_url: "https://media.vlpt.us/images/c_hyun403/profile/529bf962-09fe-440a-aeee-19a1d0ce4470/%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%E1%84%8A%E1%85%B3%E1%86%AB%E1%84%91%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%86%BA%E1%84%87%E1%85%A6%E1%84%8B%E1%85%A5.jpeg?w=240",
-        description: "드디어 성공!!",
+        description: "안녕하세요 flap Bear 입니다.",
       }),
     })
       .then((response) => response.json())
@@ -64,10 +64,10 @@ class MainJY extends React.Component {
             },
           })
           .then((res) => res.json())
-          .then((result) => {
-            console.log(result);
+          .then((data) => {
+            console.log(data);
             this.setState({
-              feedData: result.겟또
+              feedData: data.result
             })
           alert("GET 성공")
         });
@@ -89,7 +89,6 @@ class MainJY extends React.Component {
         <main>
           <div className="main_container">
             <div className="feeds">
-              <button onClick={this.posting}>posting 하기</button>
               <StoriesList />
               {feedData.map((feed) => {
                 return (
@@ -116,10 +115,10 @@ class MainJY extends React.Component {
               <div className="right_container">
                 <div className="userAcconut_container">
                   <div className="user_detail">
-                  <img alt="user_img" className="user_img" src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/94368627_630268440862734_1319761630933811200_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=fFVUpWOvd-QAX-gXsKX&tp=1&oh=103e707a288d14bdda8d43029bfff699&oe=6033FE63" />
+                  <img onClick={this.posting} alt="user_img" className="user_img" src="https://media.vlpt.us/images/c_hyun403/profile/529bf962-09fe-440a-aeee-19a1d0ce4470/%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%E1%84%8A%E1%85%B3%E1%86%AB%E1%84%91%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%86%BA%E1%84%87%E1%85%A6%E1%84%8B%E1%85%A5.jpeg?w=240" />
                   <div className="user_text">
-                    <p className="userAccount">jamongs824</p>
-                    <span className="userNickname">자몽누나</span>
+                    <p className="userAccount">bear</p>
+                    <span className="userNickname">안경쓴 곰</span>
                   </div>
                   </div>
                 </div>

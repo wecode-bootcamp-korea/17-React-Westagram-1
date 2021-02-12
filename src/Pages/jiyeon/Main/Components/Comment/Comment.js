@@ -6,7 +6,7 @@ class Comment extends Component {
   
   render() {
     // const {id, name, comment, isLiked, deleteComment} = this.props;
-    const {id, name, comment} = this.props;
+    const {id, name, comment, deleteCM} = this.props;
   
     return (
       <div className="Comment">
@@ -18,6 +18,7 @@ class Comment extends Component {
           <div className="comment_icon">
           {/* <div className={isLiked ? "like" : "unlike"}></div> */}
           {/* <div onClick={() => deleteComment(id)} className="deleteComment"/> */}
+          <div onClick={deleteCM} className="deleteComment"/>
           </div>
         </li>
       </div>

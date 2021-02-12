@@ -38,22 +38,22 @@ class LoginJY extends React.Component {
     const btnCondition = idValue.includes("@") && pwValue.length > 6;
 
     if (btnCondition) {
-      fetch("http://192.168.43.198:8000/user/signin", {
+      fetch("http://192.168.43.198:8000/user/signup", {
         method: "POST",
         body: JSON.stringify({
-          login_id: idValue,
+          email: idValue,
           password: pwValue,
-          // name: 'jiyeon',
-          // phone_number:"010-3333-3333"
+          name: 'bear',
+          phone_number:"010-4444-4444"
         }),
       })
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        if (result.message === "로그인 성공") {
-          alert("성공");
-          localStorage.setItem("token", result.token);
-          this.props.history.push("/main-jiyeon");
+        if (result.message === "SUCCESS") {
+          alert("회원가입 완료. 로그인 부탁 드립니다.");
+          // localStorage.setItem("token", result.token);
+          // this.props.history.push("/main-jiyeon");
         } else {
           alert("회원가입이나 로그인, 비밀번호 확인이 필요합니다.");
         }
@@ -61,20 +61,46 @@ class LoginJY extends React.Component {
     }
   };
 
-  tokenGive = (event) => {
-    event.preventDefault();
-    let token = localStorage.getItem('token');
-    fetch("http://10.58.57.61:8000/user/signup", {
-      method: 'POST',
-      headers: {
-        token: token
-      }
-    })
-    .then(response => response.json())
-    .then(response => {
-      console.log(response)
-    })
+  goToFeed = () => {
+    const { idValue, pwValue } = this.state;
+    const btnCondition = idValue.includes("@") && pwValue.length > 6;
+
+    if (btnCondition) {
+      fetch("http://192.168.43.198:8000/user/signin", {
+        method: "POST",
+        body: JSON.stringify({
+          login_id: idValue,
+          password: pwValue,
+        }),
+      })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        if (result.message === "SUCCESS") {
+          alert("로그인 성공!");
+          localStorage.setItem("token", result.token);
+          this.props.history.push("/main-jiyeon");
+        } else {
+          alert("회원가입이나 로그인, 비밀번호 확인이 필요합니다.");
+        }
+      });
+    }
   }
+
+  // tokenGive = (event) => {
+  //   event.preventDefault();
+  //   let token = localStorage.getItem('token');
+  //   fetch("http://10.58.57.61:8000/user/signup", {
+  //     method: 'POST',
+  //     headers: {
+  //       token: token
+  //     }
+  //   })
+  //   .then(response => response.json())
+  //   .then(response => {
+  //     console.log(response)
+  //   })
+  // }
 
   render() {
     const { idValue, pwValue, isBtnActive } = this.state;
@@ -102,6 +128,7 @@ class LoginJY extends React.Component {
             />
             <button
               onClick={this.goToMain}
+              onAuxClick={this.goToFeed}
               className={isBtnActive ? "active_btn" : "inactive_btn"}
             >
               로그인

@@ -12,15 +12,15 @@ class Feed extends React.Component {
     }
   }
 
-  componentDidMount(){
-    fetch("/data/commentData.json")
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({
-          commentData: data,
-        });
-      });
-  }
+  // componentDidMount(){
+  //   fetch("/data/commentData.json")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       this.setState({
+  //         commentData: data,
+  //       });
+  //     });
+  // }
 
   handleBtnActive = (event) => {
     this.setState({
@@ -59,10 +59,9 @@ class Feed extends React.Component {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        const {id} = this.props.id
-        // const {url}
+        const url = ``
         if (result.message === "SUCCESS") {
-          fetch("http://192.168.43.198:8000/posting/comment")
+          fetch("http://192.168.43.198:8000/posting/comment/53")
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -70,7 +69,6 @@ class Feed extends React.Component {
               commentData: data.result,
               commentInput: ''
             })
-          alert("GET 성공")
         });
     } else {
       alert("GET 실패")
@@ -79,6 +77,33 @@ class Feed extends React.Component {
   }
   };
 
+  deleteCM = () => {
+    const { commentInput, commentData } = this.state;
+    let token = localStorage.getItem('token');
+    fetch("http://192.168.43.198:8000/posting/comment/53/64", {
+      method: 'DELETE',
+      headers: {
+        Authorization: token
+      }
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        if (result.result === "SUCCESS") {
+          fetch("http://192.168.43.198:8000/posting/comment/53")
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            this.setState({
+              commentData: data.result,
+            })
+        });
+    } else {
+      alert("GET 실패")
+    }
+  });
+  
+  };
   // deleteComment = (id) => {
   //   const { commentData } = this.state;
   //   const leftComments = commentData.filter((comment) => {
@@ -92,14 +117,14 @@ class Feed extends React.Component {
   render() {
     const { commentInput, commentData, isBtnActive } = this.state;
     // const {id, accountImg, accountName, userComment, feedPlace, feedImg, likeAccountImg, likeAccountCount} = this.props
-    const {feedImg, accountName, userComment} = this.props;
+    const {id, feedImg, accountName, userComment} = this.props;
     return (
       <div className="Feed">
         <article className="article_feed">
           <header>
             <img
               // src={accountImg}
-              src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-19/s150x150/94368627_630268440862734_1319761630933811200_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_ohc=snhfKGBJobMAX8THEq7&tp=1&oh=74ca86dd8503a90916f3945676841480&oe=604FADE3"
+              src="https://media.vlpt.us/images/c_hyun403/profile/529bf962-09fe-440a-aeee-19a1d0ce4470/%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%E1%84%8A%E1%85%B3%E1%86%AB%E1%84%91%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%86%BA%E1%84%87%E1%85%A6%E1%84%8B%E1%85%A5.jpeg?w=240"
               alt="profile"
               className="profile"
             />
@@ -221,6 +246,7 @@ class Feed extends React.Component {
                     id={comment.id}
                     name={comment.name}
                     comment={comment.comment}
+                    deleteCM = {this.deleteCM}
                   />
                 );
               })}
