@@ -25,7 +25,7 @@ class LoginJY extends React.Component {
   
   handleBtnActive = () => {
     const { idValue, pwValue } = this.state;
-    const btnCondition = idValue.includes("@") && pwValue.length > 4;
+    const btnCondition = idValue.includes("@") && pwValue.length > 6;
     
     this.setState({
       isBtnActive: btnCondition 
@@ -35,22 +35,24 @@ class LoginJY extends React.Component {
   goToMain = (event) => {
     event.preventDefault();
     const { idValue, pwValue } = this.state;
-    const btnCondition = idValue.includes("@") && pwValue.length >= 5;
+    const btnCondition = idValue.includes("@") && pwValue.length > 6;
 
     if (btnCondition) {
-      fetch("http://10.58.57.61:8000/user/signin", {
+      fetch("http://192.168.43.198:8000/user/signin", {
         method: "POST",
         body: JSON.stringify({
-          email: idValue,
-          password: pwValue
+          login_id: idValue,
+          password: pwValue,
+          // name: 'jiyeon',
+          // phone_number:"010-3333-3333"
         }),
       })
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        if (result.message === "SUCCESS") {
+        if (result.message === "로그인 성공") {
           alert("성공");
-          // localStorage.setItem("token", result.token);
+          localStorage.setItem("token", result.token);
           this.props.history.push("/main-jiyeon");
         } else {
           alert("회원가입이나 로그인, 비밀번호 확인이 필요합니다.");
@@ -62,7 +64,7 @@ class LoginJY extends React.Component {
   tokenGive = (event) => {
     event.preventDefault();
     let token = localStorage.getItem('token');
-    fetch("http://10.58.57.61:8000/user/signin", {
+    fetch("http://10.58.57.61:8000/user/signup", {
       method: 'POST',
       headers: {
         token: token

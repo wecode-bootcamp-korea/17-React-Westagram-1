@@ -5,8 +5,9 @@ import "./Comment.scss";
 class Comment extends Component {
   
   render() {
-    const {id, name, comment, isLiked, deleteComment} = this.props;
-    
+    // const {id, name, comment, isLiked, deleteComment} = this.props;
+    const {id, name, comment} = this.props;
+  
     return (
       <div className="Comment">
         <li className="comment">
@@ -15,8 +16,8 @@ class Comment extends Component {
             <span>{comment}</span>
           </div>
           <div className="comment_icon">
-          <div className={isLiked ? "like" : "unlike"}></div>
-          <div onClick={() => deleteComment(id)} className="deleteComment"/>
+          {/* <div className={isLiked ? "like" : "unlike"}></div> */}
+          {/* <div onClick={() => deleteComment(id)} className="deleteComment"/> */}
           </div>
         </li>
       </div>

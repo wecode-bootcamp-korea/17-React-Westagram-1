@@ -33,41 +33,73 @@ class Feed extends React.Component {
     event.preventDefault();
     const { commentInput, commentData } = this.state;
     if (commentInput.length) {
-      this.setState({
-        commentData: [
-          ...commentData,
-          {
-            id: commentData.length + 1,
-            userName: "jiyeon0807",
-            content: commentInput,
-            isLiked: false,
-          },
-        ],
-        commentInput: "",
-      });
+      // this.setState({
+      //   commentData: [
+      //     ...commentData,
+      //     {
+      //       id: commentData.length + 1,
+      //       userName: "jiyeon0807",
+      //       content: commentInput,
+      //       isLiked: false,
+      //     },
+      //   ],
+      //   commentInput: "",
+      // });
+    let token = localStorage.getItem('token');
+    fetch("http://192.168.43.198:8000/posting/comment", {
+      method: 'POST',
+      headers: {
+        Authorization: token
+      },
+      body: JSON.stringify({
+        posting_id: this.props.id,
+        comment:commentInput
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        const {id} = this.props.id
+        // const {url}
+        if (result.message === "SUCCESS") {
+          fetch("http://192.168.43.198:8000/posting/comment")
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            this.setState({
+              commentData: data.result,
+              commentInput: ''
+            })
+          alert("GET 성공")
+        });
+    } else {
+      alert("GET 실패")
     }
+  });
+  }
   };
 
-  deleteComment = (id) => {
-    const { commentData } = this.state;
-    const leftComments = commentData.filter((comment) => {
-      return id !== comment.id;
-    });
-    this.setState({
-      commentData: leftComments,
-    });
-  };
+  // deleteComment = (id) => {
+  //   const { commentData } = this.state;
+  //   const leftComments = commentData.filter((comment) => {
+  //     return id !== comment.id;
+  //   });
+  //   this.setState({
+  //     commentData: leftComments,
+  //   });
+  // };
 
   render() {
     const { commentInput, commentData, isBtnActive } = this.state;
-    const {id, accountImg, accountName, userComment, feedPlace, feedImg, likeAccountImg, likeAccountCount} = this.props
-
+    // const {id, accountImg, accountName, userComment, feedPlace, feedImg, likeAccountImg, likeAccountCount} = this.props
+    const {feedImg, accountName, userComment} = this.props;
     return (
       <div className="Feed">
         <article className="article_feed">
           <header>
             <img
-              src={accountImg}
+              // src={accountImg}
+              src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-19/s150x150/94368627_630268440862734_1319761630933811200_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_ohc=snhfKGBJobMAX8THEq7&tp=1&oh=74ca86dd8503a90916f3945676841480&oe=604FADE3"
               alt="profile"
               className="profile"
             />
@@ -76,7 +108,8 @@ class Feed extends React.Component {
                 {accountName}
               </p>
               <a className="feed_place" href="/">
-                {feedPlace}
+                {/* {feedPlace} */}
+                
               </a>
             </div>
             <button type="button">
@@ -157,7 +190,7 @@ class Feed extends React.Component {
                 </span>
               </div>
             </section>
-            <section className="like_account">
+            {/* <section className="like_account">
               <img
                 className="like_account_img"
                 src={likeAccountImg}
@@ -166,7 +199,7 @@ class Feed extends React.Component {
               <div className="like_account_count">
                 <span>{accountName}</span> 님 <span>외 {likeAccountCount}명</span>이 좋아합니다.
               </div>
-            </section>
+            </section> */}
             <section className="feed_content"></section>
             <ul className="comment_list">
               <li className="comment">
@@ -178,12 +211,16 @@ class Feed extends React.Component {
               {commentData.map((comment) => {
                 return (
                   <Comment
+                    // key={comment.id}
+                    // id={comment.id}
+                    // name={comment.userName}
+                    // comment={comment.content}
+                    // isLiked={comment.isLiked}
+                    // deleteComment={this.deleteComment}
                     key={comment.id}
                     id={comment.id}
-                    name={comment.userName}
-                    comment={comment.content}
-                    isLiked={comment.isLiked}
-                    deleteComment={this.deleteComment}
+                    name={comment.name}
+                    comment={comment.comment}
                   />
                 );
               })}
